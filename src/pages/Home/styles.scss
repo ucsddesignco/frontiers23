@@ -82,6 +82,7 @@
     > .timeline {
         height: 100vh;
         background: $background-color;
+        overflow: hidden;
 
         > .logo {
             width: 6vw;
@@ -90,6 +91,9 @@
         > .timeline-container {
             padding: 0 $desktop-padding;
             
+            > h2 {
+                margin-bottom: 0.5rem;
+            }
             >.block {
                 display: flex;
                 flex-direction: column;
@@ -108,7 +112,7 @@
                         padding-left: 1rem;
                     }
                     > p {
-                        padding: 1rem 1rem 2rem;
+                        padding: 0.5rem 1rem 1.25rem;
                     }
                     > .middle {
                         display: flex;

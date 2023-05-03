@@ -136,3 +136,16 @@
         }
     }
 }
+
+.container {
+    scroll-snap-type: y mandatory;
+    height: 100svh;
+    overflow-y: scroll;
+  }
+  
+section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    height: 100svh;
+
+  }

@@ -1,43 +1,52 @@
-import React from 'react'
-import './styles.scss'
+import './styles.scss';
 
-import Logo from '../../assets/images/logo.svg'
+import Logo from '../../assets/images/logo.svg';
+import ScrollingWindow from '../../components/ScrollingWindow';
+import { useRef } from 'react';
 
 const FaqList1 = [
   {
     question: 'Who can participate?',
-    answer: 'Registration is open to current UCSD students only. Anyone of any skill level can join!',
+    answer:
+      'Registration is open to current UCSD students only. Anyone of any skill level can join!',
   },
   {
     question: 'When is the deadline to register?',
-    answer: 'Saturday, May 7th @ 11:59PM. We will cap the event at 60 participants, so register early!',
+    answer:
+      'Saturday, May 7th @ 11:59PM. We will cap the event at 60 participants, so register early!',
   },
   {
     question: 'Where is the Design & Innovation Building?',
-    answer: 'DIB is located next to the Pepper Canyon Trolley Station, with entrances located across from the Structural Materials and Engineering building or next to the Regents Loop shuttle stop. Design Frontiers will be hosted in Room 208 on the second floor.',
+    answer:
+      'DIB is located next to the Pepper Canyon Trolley Station, with entrances located across from the Structural Materials and Engineering building or next to the Regents Loop shuttle stop. Design Frontiers will be hosted in Room 208 on the second floor.',
   },
-]
+];
 
 const FaqList2 = [
   {
     question: 'How long is Design Frontiers?',
-    answer: 'It’ll be a one day event on Saturday, May 20th @ 9AM-5PM. Lunch will be provided! See the Timeline for a more detailed breakdown of the day.',
+    answer:
+      'It’ll be a one day event on Saturday, May 20th @ 9AM-5PM. Lunch will be provided! See the Timeline for a more detailed breakdown of the day.',
   },
   {
-    question: 'How should I prepare for Design Frontiers if I have no design experience?',
-    answer: 'We’ll be hosting a Navigating Design Frontiers workshop on Wednesday, May 12 at 6:30 PM in DIB 208.',
+    question:
+      'How should I prepare for Design Frontiers if I have no design experience?',
+    answer:
+      'We’ll be hosting a Navigating Design Frontiers workshop on Wednesday, May 12 at 6:30 PM in DIB 208.',
   },
   {
     question: 'How big can my team be?',
-    answer: 'Teams can be a min of 3 and a max of 4. Teams will not be assigned, so feel free to make your own in advance or on the day of the event. You can also join one on Design Co’s Discord channel #frontiers-22.',
+    answer:
+      'Teams can be a min of 3 and a max of 4. Teams will not be assigned, so feel free to make your own in advance or on the day of the event. You can also join one on Design Co’s Discord channel #frontiers-22.',
   },
-]
+];
 
 const TimelineList = [
   {
     time: '9 AM',
     heading: 'EVENT KICKOFF',
-    description: 'Registration & Icebreakers, Opening Remarks, Brief Introduction, Keynote Speaker',
+    description:
+      'Registration & Icebreakers, Opening Remarks, Brief Introduction, Keynote Speaker',
     id: '',
   },
   {
@@ -55,7 +64,8 @@ const TimelineList = [
   {
     time: '4:40 PM',
     heading: 'CLOSING CEREMONY',
-    description: '3 Winners are announced, 2 honorable mentions, Prize Distribution',
+    description:
+      '3 Winners are announced, 2 honorable mentions, Prize Distribution',
     id: '',
   },
   {
@@ -64,56 +74,58 @@ const TimelineList = [
     description: '',
     id: 'last',
   },
-]
+];
 
 function Home() {
+  const containerRef = useRef(null);
+
   return (
-    <div className="home">
-      <div className='landing'>
-        <div className="landing-container">
-          <div className="left-container">
-            <img src={Logo} className='logo' alt="" />
-            <h3>
-              SAT, MAY 20TH <br />
-              9AM–5PM <br />
-              DIB ROOM 208
-            </h3>
-            <p>
-              Design Frontiers is Design Co’s annual 
-              one-day design sprint where 
-              collaborative teams of creative, 
-              innovative individuals can explore 
-              design solutions to real problems.
-            </p>
+    <div ref={containerRef} className="container">
+      <ScrollingWindow containerRef={containerRef}/>
+      <div className="home">
+        <section className="landing">
+          <div className="landing-container">
+            <div className="left-container">
+              <img src={Logo} className="logo" alt="" />
+              <h3>
+                SAT, MAY 20TH <br />
+                9AM–5PM <br />
+                DIB ROOM 208
+              </h3>
+              <p>
+                Design Frontiers is Design Co’s annual one-day design sprint
+                where collaborative teams of creative, innovative individuals
+                can explore design solutions to real problems.
+              </p>
+            </div>
           </div>
-        </div>
-      </div>
-      <div className="faq">
-          <img className='logo' src={Logo} alt="" />
+        </section>
+        <section className="faq">
+          <img className="logo" src={Logo} alt="" />
           <div className="faq-container">
             <h2>FAQ</h2>
             {FaqList1.map((item) => (
-              <div className='block'>
+              <div className="block">
                 <h4>{item.question}</h4>
                 <p>{item.answer}</p>
               </div>
             ))}
           </div>
-      </div>
-      <div className="faq">
-          <img className='logo' src={Logo} alt="" />
+        </section>
+        <section className="faq">
+          <img className="logo" src={Logo} alt="" />
           <div className="faq-container">
             <h2>FAQ</h2>
             {FaqList2.map((item) => (
-              <div className='block'>
+              <div className="block">
                 <h4>{item.question}</h4>
                 <p>{item.answer}</p>
               </div>
             ))}
           </div>
-      </div>
-      <div className="timeline">
-          <img className='logo' src={Logo} alt="" />
+        </section>
+        <section className="timeline">
+          <img className="logo" src={Logo} alt="" />
           <div className="timeline-container">
             <h2>TIMELINE</h2>
             {TimelineList.map((item) => (
@@ -132,11 +144,11 @@ function Home() {
                 </div>
               </div>
             ))}
-            
           </div>
+        </section>
       </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

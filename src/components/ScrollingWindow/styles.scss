@@ -1,0 +1,114 @@
+.window-container {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.window-border {
+  --border-thickness: 50;
+  --video-height: 2346;
+  --video-width: 0.2 * var(--video-height);
+  --border-radius: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(226, 226, 226, 1) 0%,
+    rgba(250, 250, 250, 1) 100%
+  );
+  border-radius: calc(var(--border-radius) * 1px);
+  position: fixed;
+  right: 15vw;
+  transform: scale(0.8);
+  width: calc((var(--video-width) + var(--border-thickness)) * 1px);
+  height: calc((var(--video-height) + (4 * var(--border-thickness))) / 4 * 1px);
+  background: linear-gradient(
+    180deg,
+    rgba(226, 226, 226, 1) 0%,
+    rgba(250, 250, 250, 1) 100%
+  );
+  overflow: hidden;
+}
+
+.video-mask {
+  transition: transform 0.5s;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: calc((var(--border-radius) + var(--border-thickness)) * 1px);
+  height: calc(2346 / 4 * 1px);
+  overflow: hidden;
+}
+
+.window-video {
+  width: 468px;
+  transition: all 0.5s;
+}
+
+.navbar {
+  position: fixed;
+  right: 10vw;
+}
+
+.navbar ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.navbar ul li {
+  text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar ul li a {
+  pointer-events: initial;
+  color: gray;
+  font-weight: bold;
+  padding: 1rem 0;
+  text-decoration: none;
+}
+
+.navbar ul li a.active {
+  color: black;
+}
+
+.navbar ul li:not(:last-child)::after {
+  content: '';
+  display: block;
+  width: 2px;
+  height: 35px;
+  background-color: rgb(209, 209, 209);
+}
+
+@keyframes FadeOut {
+  0% {
+  }
+  100% {
+    transform: translateY(-700px) scale(0.8);
+  }
+}
+
+@keyframes FadeIn {
+  0% {
+    transform: translateY(-700px) scale(0.8);
+  }
+  100% {
+    transform: translateY(0px) scale(0.8);
+  }
+}
+
+.window-border.fade-out {
+  animation: FadeOut 0.45s ease-out;
+}
+
+.window-border.fade-in {
+  animation: FadeIn 0.45s ease-out;
+}

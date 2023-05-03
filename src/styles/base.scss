@@ -24,17 +24,17 @@ $p-font: "Space Mono Regular", sans-serif;
 // Importing Fonts //
 @font-face {
     font-family: "Space Mono Bold";
-    src: url("src/assets/fonts/SpaceMono-Bold.ttf") format("truetype");
+    src: url("./fonts/SpaceMono-Bold.ttf") format("truetype");
 }
   
 @font-face {
     font-family: "Space Mono Regular";
-    src: url("src/assets/fonts/SpaceMono-Regular.ttf") format("truetype");
+    src: url("./fonts/SpaceMono-Regular.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Neue Plak";
-    src: url("src/assets/fonts/Neue-Plak-Extended-Bold.ttf") format("truetype");
+    src: url("./fonts/Neue-Plak-Extended-Bold.ttf") format("truetype");
 }
 
 h2, h3, h4, h5, p {

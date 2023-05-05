@@ -1,0 +1,99 @@
+// Device Media Queries // 
+$mobile: 600px;
+$desktop: 960px;
+
+// Paddings //
+$desktop-padding: 8vw;
+$mobile-padding: 10vw;
+
+// Colors //
+$text-color: black;
+$alt-color: #828282;
+$primary-color: #80D8FF;
+
+// Background Color //
+$inside-background-color: #F3F3F3;
+$outside-background-color: #EBEBEB;
+$background-color: radial-gradient($inside-background-color, $outside-background-color);
+
+// Fonts //
+$heading-font: 'Space Mono', sans-serif;
+$subheading-font: "Neue Plak", sans-serif;
+$p-font: "Space Mono Regular", sans-serif;
+
+// Importing Fonts //
+@font-face {
+    font-family: "Space Mono";
+    src: url("../assets/fonts/SpaceMono-Bold.ttf") format("truetype");
+}
+  
+@font-face {
+    font-family: "Space Mono Regular";
+    src: url("../assets/fonts/SpaceMono-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Neue Plak";
+    src: url("../assets/fonts/Neue-Plak-Extended-Bold.ttf") format("truetype");
+}
+
+h2, h3, h4, h5, p {
+    color: $text-color;
+    margin: 0;
+}
+
+h2 {
+    font-family: $heading-font;
+    font-size: min(3.8svw, 2.5rem);
+    line-height: 150%;
+
+    @media only screen and (max-width: $mobile) {
+        font-size: 1.5rem;
+    }
+}
+
+h3 {
+    font-family: $heading-font;
+    font-size: min(1.5svw, 1.5rem);
+    line-height: 150%;
+
+    @media only screen and (max-width: $mobile) {
+        font-size: 1rem;
+        line-height: 130%;
+    }
+}
+
+h4 {
+    font-family: $subheading-font;
+    font-size: min(2svw, 1.5rem);
+    line-height: 150%;
+
+    @media only screen and (max-width: $mobile) {
+        font-size: 1.125rem;
+    }
+}
+
+h5 {
+    font-family: $heading-font;
+    font-size: min(1.25svw, 1rem);
+    line-height: 130%;
+
+    @media only screen and (max-width: $mobile) {
+        font-size: 0.875rem;
+    }
+}
+
+p {
+    font-family: $p-font;
+    font-size: min(1.1svw, 0.875rem);
+    line-height: 148%;
+
+    @media only screen and (max-width: $mobile) {
+        font-size: 0.875rem;
+        line-height: 130%;
+    }
+}
+
+a {
+    font-family: $heading-font;
+}

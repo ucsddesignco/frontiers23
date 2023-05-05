@@ -1,0 +1,18 @@
+@import '../../styles/base.scss';
+
+.mobile-navbar {
+    display: none;
+
+    @media screen and (max-width: $mobile) {
+        display: flex;
+        position: fixed;
+        padding: 1rem;
+        width: 100%;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}

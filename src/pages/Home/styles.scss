@@ -1,2 +1,204 @@
-@import '../../styles/base.scss'
+@import '../../styles/base.scss';
 
+.home {
+
+    > .landing {
+        height: 100vh;
+        background: $background-color;
+        overflow: hidden;
+
+        > .landing-container {
+            padding: 4rem $desktop-padding;
+        
+            > .left-container {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding-top: 20vw;
+                width: 28svw;
+
+                @media screen and (max-width: $mobile) {
+                    padding-top: 0;
+                    width: 64vw;
+                    margin: 0 auto;
+                }
+                
+                > .logo {
+                    display: none;
+
+                    @media screen and (max-width: $mobile) {
+                        display: block;
+                        width: 64vw;
+                        margin: 0 auto 2rem;
+                    }
+                }
+                > h3 {
+                    @media screen and (max-width: $mobile) {
+                        display: none;
+                    }
+                }
+                > .mobile-h3-container {
+                    display: none;
+
+                    @media screen and (max-width: $mobile) {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        width: 100%;
+                    }
+                }
+                > p {
+                    text-align: justify;
+                    margin: 2rem 0;
+
+                    @media screen and (max-width: $mobile) {
+                        display: none;
+                    }
+                }
+                > .register-button {
+                    all: unset;
+        
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+        
+                    text-align: left;
+                    font-family: $heading-font;
+                    font-weight: 700;
+                    color: black;
+        
+                    &:hover {
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+        
+                    &:focus {
+                        text-decoration: underline;
+                    }
+
+                    font-size: min(3svw, 1.5em);
+        
+                    @media screen and (max-width: $mobile) {
+                        display: none;
+                    }
+                    #arrow-right {
+                        margin-left: 25px;
+                        width: 4svw;
+                    }
+                }
+            }
+        }
+    }
+    > .faq {
+        height: 100vh;
+        background: $background-color;
+        overflow: hidden;
+
+        > .logo {
+            width: 6vw;
+            padding: 2rem 4vw;
+        }
+
+        > .faq-container {
+            padding: min(16vh, 8rem) $desktop-padding;
+
+            > .block {
+                display: flex;
+                flex-direction: column;
+                width: 35vw;
+                margin-bottom: 1rem;
+
+                > h4 {
+                    margin-bottom: 1rem;
+                }
+                > p {
+                    text-align: justify;
+                }
+
+                @media screen and (max-width: $mobile) {
+                    width: 84vw;
+                }
+            }
+        }
+    }
+    > .timeline {
+        height: 100vh;
+        background: $background-color;
+        overflow: hidden;
+
+        > .logo {
+            width: 6vw;
+            padding: 2rem 4vw;
+        }
+        > .timeline-container {
+            padding: min(16vh, 8rem) $desktop-padding;
+            
+            > h2 {
+                margin-bottom: 1.5rem;
+            }
+            >.block {
+                display: flex;
+                flex-direction: column;
+
+                > .grid-container {
+                    display: grid;
+                    margin-left: -5vw;
+                    grid-template-columns: min(8vw, 8rem) 2rem 30vw;
+
+                    @media screen and (max-width: $mobile) {
+                        margin-left: 0;
+                        grid-template-columns: 6rem 2rem auto;
+                    }
+                    
+                    > h5 {
+                        text-align: right;
+                        line-height: 1.5;
+                        padding-right: 1rem;
+                    }
+                    > h3 {
+                        line-height: 1;
+                        padding-left: 1rem;
+                    }
+                    > p {
+                        padding: 0.5rem 1rem 1.25rem;
+                    }
+                    > .middle {
+                        display: flex;
+                        margin: 0 auto;
+
+                        > .circle {
+                            height: 1.5rem;
+                            width: 1.5rem;
+                            border: 1.5px solid black;
+                            border-radius: 50%;
+                            background-color: $primary-color;
+                        }
+                         .line {
+                            display: flex;
+                            align-items: center;
+                            width: 1.5px;
+                            background-color: black;
+                        }
+                        > #last {
+                            width: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.container {
+    display: flex;
+    scroll-snap-type: y mandatory;
+    height: 100svh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  
+section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    height: 100svh;
+  }

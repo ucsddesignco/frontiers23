@@ -4,10 +4,9 @@ import { useEffect } from 'react';
 
 import Logo from '../../assets/images/logo.svg';
 
-function ScrollingWindow({containerRef}) {
+function ScrollingWindow({containerRef, logoRef}) {
   const windowBorderRef = useRef(null);
   const videoRef = useRef(null);
-  const logoRef = useRef(null);
   const [currentSection, setcurrentSection] = useState(0);
   const [isScrolling, setisScrolling] = useState(false);
   const [timeoutId, setTimeoutID] = useState();
@@ -30,7 +29,7 @@ function ScrollingWindow({containerRef}) {
     setTimeoutID(
       setTimeout(() => {
         setisScrolling(false);
-      }, 550)
+      }, 600)
     );
   }
 
@@ -53,7 +52,6 @@ function ScrollingWindow({containerRef}) {
       videoRef.current.style.transform = `translateY(-50%)`;
       setcurrentSection(2);
     } else if (62.5 < scrollPercent && scrollPercent <= 85) {
-      console.log(currentSection);
       if (currentSection == 4) {
         if (windowBorderRef.current.style.display == 'none') {
           windowBorderRef.current.classList.add('fade-in');
@@ -66,8 +64,6 @@ function ScrollingWindow({containerRef}) {
       videoRef.current.style.transform = `translateY(-75%)`;
       setcurrentSection(3);
     } else if (scrollPercent > 85) {
-      console.log('bruh');
-      console.log(windowBorderRef.current.style.display);
       if (windowBorderRef.current.style.display == '') {
         windowBorderRef.current.classList.add('fade-out');
         windowBorderRef.current.onanimationend = () => {
@@ -79,7 +75,7 @@ function ScrollingWindow({containerRef}) {
     }
 
     if (scrollPercent > 12.5) {
-      logoRef.current.style.transform = `scale(0.25) translate(-8vw, -8rem)`;
+      logoRef.current.style.transform = `scale(0.25) translate(-8vw, -20rem)`;
     } else {
       logoRef.current.style.transform = `scale(1) translate(0, 0)`;
     }
@@ -107,7 +103,6 @@ function ScrollingWindow({containerRef}) {
   }, [isScrolling, currentSection]);
 
   return (
-    <div>
       <div className="window-container">
         {/* <nav className="mobile-navbar">
           <ul>
@@ -123,7 +118,6 @@ function ScrollingWindow({containerRef}) {
             </li>
           </ul>
         </nav> */}
-        <img ref={logoRef} src={Logo} id="logo" alt="" />
         <div ref={windowBorderRef} className="window-border">
           <div className="video-mask">
             <video
@@ -165,7 +159,7 @@ function ScrollingWindow({containerRef}) {
                   tempScrolling(1);
                   containerRef.current?.scrollTo({ top: 817, behavior: 'smooth' });
                   videoRef.current.style.transform = `translateY(-25%)`;
-                  logoRef.current.style.transform = `scale(0.25) translate(-8vw, -8rem)`;
+                  logoRef.current.style.transform = `scale(0.25) translate(-8vw, -20rem)`;
                 }}
               >
                 FAQ
@@ -178,9 +172,9 @@ function ScrollingWindow({containerRef}) {
                 onClick={() => {
                   beforeNavigation(currentSection);
                   tempScrolling(3);
-                  containerRef.current?.scrollTo({ top: 1700, behavior: 'smooth' });
+                  containerRef.current?.scrollTo({ top: 2451, behavior: 'smooth' });
                   videoRef.current.style.transform = `translateY(-75%)`;
-                  logoRef.current.style.transform = `scale(0.25) translate(-8vw, -8rem)`;
+                  logoRef.current.style.transform = `scale(0.25) translate(-8vw, -20rem)`;
                 }}
               >
                 Timeline
@@ -198,8 +192,8 @@ function ScrollingWindow({containerRef}) {
                   };
                   tempScrolling(4);
                   containerRef.current?.scrollTo({ top: 3269, behavior: 'smooth' });
-                  videoRef.current.style.transform = `translateY(-75%)`;
-                  logoRef.current.style.transform = `scale(0.25) translate(-8vw, -8rem)`;
+                  // videoRef.current.style.transform = `translateY(-75%)`;
+                  logoRef.current.style.transform = `scale(0.25) translate(-8vw, -20rem)`;
                 }}
               >
                 Register
@@ -208,7 +202,6 @@ function ScrollingWindow({containerRef}) {
           </ul>
         </nav>
       </div>
-    </div>
   );
 }
 

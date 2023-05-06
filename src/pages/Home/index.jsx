@@ -4,7 +4,7 @@ import Logo from '../../assets/images/logo.svg';
 import MobileNavbar from '../../components/MobileNavbar';
 import ScrollingWindow from '../../components/ScrollingWindow';
 import FormSubmission from '../../components/FormSubmission';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 const FaqList1 = [
   {
@@ -80,20 +80,27 @@ const TimelineList = [
 
 function Home() {
   const containerRef = useRef(null);
+  const logoRef = useRef(null);
 
-  const openLink = _ => {
+  useEffect(() => {
+    console.log(logoRef.current?.clientHeight);
+
+  })
+
+  const openLink = () => {
 		window.open('https://www.google.com/search?q=svw+vs+vw+react&rlz=1C1CHBF_enUS1013US1013&oq=svw+vs+vw+react&aqs=chrome..69i57j33i160l3.4931j0j7&sourceid=chrome&ie=UTF-8', '_blank')
 	}
 
   return (
     <div ref={containerRef} className="container">
-      <ScrollingWindow containerRef={containerRef}/>
+      <ScrollingWindow containerRef={containerRef} logoRef={logoRef}/>
       <div className="home">
         <MobileNavbar />
         <section className="landing">
           <div className="landing-container">
             <div className="left-container">
-              <img src={Logo} className="logo" alt="" />
+              <img ref={logoRef} src={Logo} className="logo" alt="" />
+              <img src={Logo} className="mobile-logo" alt="" />
               <h3>
                 SAT, MAY 20TH | 9AM–5PM | DIB 208
               </h3>

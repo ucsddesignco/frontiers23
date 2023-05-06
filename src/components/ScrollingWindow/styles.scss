@@ -12,24 +12,6 @@
   z-index: 10;
 }
 
-#logo {
-  position: fixed;
-  width: min(32rem, 28vw);
-  top: 4rem;
-  left: 8vw;
-  z-index: 100;
-
-  transition: 0.5s;
-  transform-origin: top left;
-
-  /* width: 7vw;
-  top: 2rem;
-  left: 4vw; */
-  @media screen and (max-width: $mobile) {
-    display: none;
-  }
-}
-
 $window-width: 30vw;
 $mobile-window-width: 50vw;
 
@@ -53,7 +35,6 @@ $mobile-window-width: 50vw;
   width: $window-width;
   height: $window-width * 1.2;
   overflow: hidden;
-
   @media screen and (max-width: $desktop) {
       right: 24vw;
   }
@@ -68,7 +49,7 @@ $mobile-window-width: 50vw;
 }
 
 .video-mask {
-  transition: transform 0.5s;
+  transition: all 0.5s;
   border: 1px solid rgb(0, 0, 0);
   border-radius: $window-width * 0.6;
   height: $window-width;
@@ -150,11 +131,11 @@ $mobile-window-width: 50vw;
 }
 
 .window-border.fade-out {
-  animation: FadeOut 0.45s ease-out;
+  animation: FadeOut 0.3s ease-out;
 }
 
 .window-border.fade-in {
-  animation: FadeIn 0.45s ease-out;
+  animation: FadeIn 0.3s ease-out;
 }
 
 /* .mobile-navbar {

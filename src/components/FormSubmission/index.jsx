@@ -2,10 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 
 import './styles.scss'
 
-import dfLogo from './dfLogo.svg'
 import brr from './brr.svg'
-import boardingPass from './boardingPass.svg'
-import boardingPass2 from './boardingPass2.svg'
 import FullBoardingPass from './fullBoardingPass.svg'
 
 const formLink = 'https://www.youtube.com/shorts/CbWFZ5eroXM'

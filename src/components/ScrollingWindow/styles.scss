@@ -42,7 +42,7 @@ $mobile-window-width: 50vw;
   }
   @media screen and (max-width: $mobile) {
       right: auto;
-      margin-top: 22rem;
+      bottom: 7rem;
       border-radius: $mobile-window-width * 0.6;
       width: calc($mobile-window-width - 5vw);
       height: calc($mobile-window-width * 1.2 - 5vw);

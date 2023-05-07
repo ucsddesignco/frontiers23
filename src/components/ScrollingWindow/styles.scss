@@ -42,10 +42,10 @@ $mobile-window-width: 50vw;
   }
   @media screen and (max-width: $mobile) {
       right: auto;
-      bottom: 6vw;
+      margin-top: 22rem;
       border-radius: $mobile-window-width * 0.6;
-      width: $mobile-window-width;
-      height: $mobile-window-width * 1.2;
+      width: calc($mobile-window-width - 5vw);
+      height: calc($mobile-window-width * 1.2 - 5vw);
       transition: 0.8s;
   }
 }
@@ -58,6 +58,7 @@ $mobile-window-width: 50vw;
   overflow: hidden;
 
   @media screen and (max-width: $mobile) {
+    
     border-radius: $mobile-window-width * 0.6;
     height: $mobile-window-width;
   }

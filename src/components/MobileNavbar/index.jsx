@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './styles.scss'
 
 import DcoLogo from '../../assets/images/dco_logo.svg';
 import HamburgerMenu from '../../assets/images/hamburgerMenu.svg';
 
 function MobileNavbar() {
+  const [openMenu, setOpenMenu] = useState(false);
   return (
+    <>
     <nav className="mobile-navbar">
       <ul>
         <li>
@@ -14,12 +16,12 @@ function MobileNavbar() {
           </a>
         </li>
         <li>
-          <a href="">
-            <img src={HamburgerMenu} alt="" />
-          </a>
+            <img onClick={() => setOpenMenu(!openMenu)} src={HamburgerMenu} alt="" />
         </li>
       </ul>
+      {openMenu ? <div>wahoo</div> : null}
     </nav>
+    </>
   )
 }
 

@@ -104,20 +104,6 @@ function ScrollingWindow({containerRef, logoRef}) {
 
   return (
       <div className="window-container">
-        {/* <nav className="mobile-navbar">
-          <ul>
-            <li>
-              <a href="">
-                <img src={DcoLogo} alt="" />
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <img src={HamburgerMenu} alt="" />
-              </a>
-            </li>
-          </ul>
-        </nav> */}
         <div ref={windowBorderRef} className="window-border">
           <div className="video-mask">
             <video

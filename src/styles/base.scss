@@ -21,20 +21,23 @@ $heading-font: 'Space Mono', sans-serif;
 $subheading-font: "Neue Plak", sans-serif;
 $p-font: "Space Mono Regular", sans-serif;
 
+// Heights //
+$navbar-height: 125px;
+
 // Importing Fonts //
 @font-face {
     font-family: "Space Mono";
-    src: url("../assets/fonts/SpaceMono-Bold.ttf") format("truetype");
+    src: url("../../assets/fonts/SpaceMono-Bold.ttf") format("truetype");
 }
   
 @font-face {
     font-family: "Space Mono Regular";
-    src: url("../assets/fonts/SpaceMono-Regular.ttf") format("truetype");
+    src: url("../../assets/fonts/SpaceMono-Regular.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Neue Plak";
-    src: url("../assets/fonts/Neue-Plak-Extended-Bold.ttf") format("truetype");
+    src: url("../../assets/fonts/Neue-Plak-Extended-Bold.ttf") format("truetype");
 }
 
 h2, h3, h4, h5, p {
@@ -97,3 +100,8 @@ p {
 a {
     font-family: $heading-font;
 }
+
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  

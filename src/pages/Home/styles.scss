@@ -26,6 +26,10 @@
         display: flex;
         > .landing-container {
             padding: 0 $desktop-padding;
+
+            @media screen and (max-width: $mobile) {
+                width: 100%;
+            }
         
             > .left-container {
                 display: flex;
@@ -35,9 +39,11 @@
                 padding-top: calc(min(37rem, 33vw)/1.6 + min(10rem, 19vh) + 1rem);
 
                 @media screen and (max-width: $mobile) {
-                    padding-top: 0;
-                    width: 64vw;
-                    margin: 0 auto;
+                    position:relative;
+                    height: calc(100svh);
+
+                    padding-top: calc($navbar-height );
+                    width: 100%;
                 }
                 
                 > .mobile-logo {
@@ -45,8 +51,9 @@
 
                     @media screen and (max-width: $mobile) {
                         display: block;
-                        width: 64vw;
                         margin: 0 auto 2rem;
+                        width: 100%;
+                        
                     }
                 }
                 > h3 {
@@ -64,7 +71,13 @@
                         flex-direction: row;
                         justify-content: space-between;
                         width: 100%;
+
+                        h3 {
+                        font-size: min(4svw, 2em);
+
+                        }
                     }
+                    
                 }
                 > p {
                     text-align: justify;
@@ -98,11 +111,15 @@
                     font-size: min(3svw, 1.5em);
         
                     @media screen and (max-width: $mobile) {
-                        display: none;
+                        // display: none;
+                        font-size: min(5svw, 3em);
+                        position: absolute;
+                        bottom: 3rem;
+                        width: 100%;
+                        
                     }
                     #arrow-right {
                         margin-left: 25px;
-                        width: 4svw;
                     }
                 }
             }

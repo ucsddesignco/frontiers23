@@ -2,16 +2,19 @@
 
 .mobile-navbar {
     display: none;
-
     @media screen and (max-width: $mobile) {
         display: flex;
         position: fixed;
-        padding: 1rem;
         width: 100%;
+        padding: 1.5rem $mobile-padding;
+        height: $navbar-height;
+
 
         ul {
+            list-style: none;
+            width: 100%;
+            padding-left: 0;
             display: flex;
-            flex-direction: row;
             justify-content: space-between;
         }
     }

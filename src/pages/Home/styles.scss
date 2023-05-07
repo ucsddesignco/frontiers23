@@ -3,8 +3,8 @@
 .home {
     .logo {
         position: absolute;
-        width: min(32rem, 28vw);
-        top: 10rem;
+        width: min(37rem, 33vw);
+        top: 0rem;
         left: 8vw;
         z-index: 100;
       
@@ -24,15 +24,18 @@
         background: $background-color;
         overflow: hidden;
         display: flex;
+        align-items: center;
         > .landing-container {
             padding: 0 $desktop-padding;
-            padding-top: calc(min(32rem, 28vw)/1.6 + 10rem);
+            position: relative;
         
             > .left-container {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                width: min(32rem, 28vw);
+                width: min(37rem, 33vw);
+                padding-top: calc(min(37rem, 33vw)/1.6);
+
                 @media screen and (max-width: $mobile) {
                     padding-top: 0;
                     width: 64vw;

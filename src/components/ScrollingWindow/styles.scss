@@ -67,7 +67,8 @@ $mobile-window-width: 50vw;
 .window-video {
   width: $window-width * 0.8;
   transition: all 0.5s;
-
+  //Safari overflow bug
+  transform: translate3d(0, 0, 0);
   @media screen and (max-width: $mobile) {
   width: $mobile-window-width * 0.8;
   }

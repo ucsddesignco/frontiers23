@@ -32,8 +32,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                width: 28svw;
-
+                width: min(32rem, 28vw);
                 @media screen and (max-width: $mobile) {
                     padding-top: 0;
                     width: 64vw;
@@ -50,6 +49,8 @@
                     }
                 }
                 > h3 {
+                    font-size: min(1.4svw, 1.45em);
+                    white-space:nowrap;
                     @media screen and (max-width: $mobile) {
                         display: none;
                     }

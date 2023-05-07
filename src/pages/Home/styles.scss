@@ -4,7 +4,7 @@
     .logo {
         position: absolute;
         width: min(37rem, 33vw);
-        top: min(12rem, 15vh);
+        top: min(10rem, 19vh);
         left: 8vw;
         z-index: 100;
       
@@ -24,7 +24,6 @@
         background: $background-color;
         overflow: hidden;
         display: flex;
-        // align-items: center;
         > .landing-container {
             padding: 0 $desktop-padding;
         
@@ -33,7 +32,7 @@
                 flex-direction: column;
                 align-items: flex-start;
                 width: min(37rem, 33vw);
-                padding-top: calc(min(37rem, 33vw)/1.6 + min(12rem, 15vh) + 1rem);
+                padding-top: calc(min(37rem, 33vw)/1.6 + min(10rem, 19vh) + 1rem);
 
                 @media screen and (max-width: $mobile) {
                     padding-top: 0;

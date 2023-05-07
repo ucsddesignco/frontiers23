@@ -31,9 +31,11 @@ $mobile-window-width: 50vw;
   );
   border-radius: $window-width * 0.6;
   position: fixed;
-  right: 20vw;
-  width: $window-width;
-  height: $window-width * 1.2;
+  right: 18vw;
+  width: calc($window-width - 3.5vw);
+  height: calc($window-width * 1.2 - 3.5vw);
+  // width: $window-width;
+  // height: $window-width * 1.2;
   overflow: hidden;
   @media screen and (max-width: $desktop) {
       right: 24vw;

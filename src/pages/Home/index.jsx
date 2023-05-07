@@ -4,7 +4,7 @@ import Logo from '../../assets/images/logo.svg';
 import MobileNavbar from '../../components/MobileNavbar';
 import ScrollingWindow from '../../components/ScrollingWindow';
 import FormSubmission from '../../components/FormSubmission';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const FaqList1 = [
   {
@@ -81,14 +81,23 @@ const TimelineList = [
 function Home() {
   const containerRef = useRef(null);
   const logoRef = useRef(null);
+  const mobileDateRef = useRef(null);
+  const registerRef = useRef(null);
+  const [availableSpace, setAvailableSpace] = useState(0);
 
   const openLink = () => {
 		window.open('https://www.google.com/search?q=svw+vs+vw+react&rlz=1C1CHBF_enUS1013US1013&oq=svw+vs+vw+react&aqs=chrome..69i57j33i160l3.4931j0j7&sourceid=chrome&ie=UTF-8', '_blank')
 	}
 
+  //Calculate space available for window
+  useEffect(() => {
+    const estimatedImageHeight = (document.body.clientWidth - 2*(document.body.clientWidth/10))/1.68 + 16;
+    setAvailableSpace((registerRef.current.getBoundingClientRect().top - (mobileDateRef.current.getBoundingClientRect().bottom + estimatedImageHeight)))
+  }, [])
+
   return (
     <div ref={containerRef} className="container">
-      <ScrollingWindow containerRef={containerRef} logoRef={logoRef}/>
+      {availableSpace == 0 ? null : <ScrollingWindow availableSpace={availableSpace - (0.1*availableSpace)} containerRef={containerRef} logoRef={logoRef}/> }
       <div className="home">
         <MobileNavbar />
         <section className="landing">
@@ -99,7 +108,7 @@ function Home() {
               <h3>
                 SAT, MAY 20TH | 9AM–5PM | DIB 208
               </h3>
-              <div className="mobile-h3-container">
+              <div ref={mobileDateRef} className="mobile-h3-container">
                 <h3>
                   SAT, MAY 20TH <br />
                   9AM–5PM
@@ -114,6 +123,7 @@ function Home() {
                 can explore design solutions to real problems.
               </p>
               <div
+                ref={registerRef}
                 role='link'
                 className='register-button'
                 onClick={(() => openLink('https://www.google.com/search?q=svw+vs+vw+react&rlz=1C1CHBF_enUS1013US1013&oq=svw+vs+vw+react&aqs=chrome..69i57j33i160l3.4931j0j7&sourceid=chrome&ie=UTF-8'))}

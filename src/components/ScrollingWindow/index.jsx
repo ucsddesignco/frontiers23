@@ -2,9 +2,7 @@ import { useRef, useState } from 'react';
 import './styles.scss';
 import { useEffect } from 'react';
 
-import Logo from '../../assets/images/logo.svg';
-
-function ScrollingWindow({containerRef, logoRef}) {
+function ScrollingWindow({availableSpace, containerRef, logoRef}) {
   const windowBorderRef = useRef(null);
   const videoRef = useRef(null);
   const [currentSection, setcurrentSection] = useState(0);
@@ -101,9 +99,8 @@ function ScrollingWindow({containerRef, logoRef}) {
       });
     };
   }, [isScrolling, currentSection]);
-
   return (
-      <div className="window-container">
+      <div style={{"--available-space": availableSpace}} className="window-container">
         <div ref={windowBorderRef} className="window-border">
           <div className="video-mask">
             <video

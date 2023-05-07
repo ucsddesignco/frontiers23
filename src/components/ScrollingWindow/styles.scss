@@ -43,9 +43,12 @@ $mobile-window-width: 50vw;
   @media screen and (max-width: $mobile) {
       right: auto;
       bottom: 7rem;
-      border-radius: $mobile-window-width * 0.6;
-      width: calc($mobile-window-width - 5vw);
-      height: calc($mobile-window-width * 1.2 - 5vw);
+      border-radius: calc(var(--available-space) * 0.6 * 1px);
+      width: calc(var(--available-space) / 1.2 * 1px + 5vw);
+      height: calc(var(--available-space) * 1px + 5vw);
+      // border-radius: $mobile-window-width * 0.6;
+      // width: calc($mobile-window-width - 5vw);
+      // height: calc($mobile-window-width * 1.2 - 5vw);
       transition: 0.8s;
   }
 }
@@ -60,8 +63,11 @@ $mobile-window-width: 50vw;
   isolation: isolate;
   @media screen and (max-width: $mobile) {
     
-    border-radius: $mobile-window-width * 0.6;
-    height: $mobile-window-width;
+    border-radius: calc(var(--available-space) * 0.6 * 1px);
+    height: calc(var(--available-space) * 1px);
+    // border-radius: $mobile-window-width * 0.6;
+    // height: $mobile-window-width;
+    
   }
 }
 
@@ -69,7 +75,9 @@ $mobile-window-width: 50vw;
   width: $window-width * 0.8;
   transition: all 0.5s;
   @media screen and (max-width: $mobile) {
-  width: $mobile-window-width * 0.8;
+    width: calc(var(--available-space) / 1.2 * 1px) ;
+    // width: $mobile-window-width * 0.8;
+
   }
 }
 

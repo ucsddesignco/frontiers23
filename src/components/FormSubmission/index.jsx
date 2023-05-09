@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import './styles.scss'
 
 import brr from './brr.svg'
-import FullBoardingPass from './fullBoardingPass.svg'
+import FullBoardingPass from './fullBoardingPass.png'
 
 const formLink = 'https://www.youtube.com/shorts/CbWFZ5eroXM'
 

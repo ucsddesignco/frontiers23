@@ -5,19 +5,19 @@ $mobile: 600px;
 $desktop: 960px;
 
 .form-submit {
-	height: 100svh;
+	height: 100vh;
 	width: 100svw;
 	z-index: 11;
-	background: $background-color;
-	overflow: hidden;
-	
+	margin-top: 30vh;
+
 	.scroll-page {
 		width: 100svw;
-		height: 100svh;
+		height: 100vh;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		position: relative;
+
 
 		#brr-box {
 			position: absolute;
@@ -26,7 +26,7 @@ $desktop: 960px;
 
 			@media screen and (min-width: $mobile) {
 				top: 60svh;
-
+				
 				#brr {
 					width: 300px;
 				}

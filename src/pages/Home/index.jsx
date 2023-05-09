@@ -83,24 +83,30 @@ function Home() {
   const logoRef = useRef(null);
   const mobileDateRef = useRef(null);
   const registerRef = useRef(null);
+  const timelineRef = useRef(null);
   const [availableSpace, setAvailableSpace] = useState(0);
+  const [timelineSpace, setTimelineSpace] = useState(0);
 
   const openLink = () => {
 		window.open('https://www.google.com/search?q=svw+vs+vw+react&rlz=1C1CHBF_enUS1013US1013&oq=svw+vs+vw+react&aqs=chrome..69i57j33i160l3.4931j0j7&sourceid=chrome&ie=UTF-8', '_blank')
 	}
 
-  //Calculate space available for window
   useEffect(() => {
     const estimatedImageHeight = (document.body.clientWidth - 2*(document.body.clientWidth/10))/1.68 + 16;
+    //Calculate space available for window in other sections assuming timeline has least space
+    setTimelineSpace(timelineRef.current.getBoundingClientRect().top - 3*document.body.clientHeight - 120);
+    //Calculate space available for window in first section
     setAvailableSpace((registerRef.current.getBoundingClientRect().top - (mobileDateRef.current.getBoundingClientRect().bottom + estimatedImageHeight)))
   }, [])
 
-  return (
+  
+
+  return ( 
     <div ref={containerRef} className="container">
-      {availableSpace == 0 ? null : <ScrollingWindow availableSpace={availableSpace - (0.1*availableSpace)} containerRef={containerRef} logoRef={logoRef}/> }
+      {availableSpace == 0 ? null : <ScrollingWindow timelineSpace={timelineSpace} availableSpace={availableSpace - (0.15*availableSpace)} containerRef={containerRef} logoRef={logoRef}/> }
       <div className="home">
         <MobileNavbar />
-        <section className="landing">
+        <section id="testLanding" className="landing">
           <div className="landing-container">
             <div className="left-container">
               <img ref={logoRef} src={Logo} className="logo" alt="" />
@@ -147,7 +153,7 @@ function Home() {
             </div>
           </div>
         </section>
-        <section className="faq">
+        <section id="testFAQ1" className="faq">
           <div className="faq-container">
             <h2>FAQ</h2>
             {FaqList1.map((item) => (
@@ -158,7 +164,7 @@ function Home() {
             ))}
           </div>
         </section>
-        <section className="faq">
+        <section id="testFAQ2" className="faq">
           <div className="faq-container">
             <h2>FAQ</h2>
             {FaqList2.map((item) => (
@@ -170,7 +176,7 @@ function Home() {
           </div>
         </section>
         <section className="timeline">
-          <div className="timeline-container">
+          <div ref={timelineRef}  className="timeline-container">
             <h2>TIMELINE</h2>
             {TimelineList.map((item) => (
               <div className="block">

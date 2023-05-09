@@ -20,8 +20,7 @@
       }
 
     > .landing {
-        height: 100vh;
-        background: $background-color;
+        height: 100%;
         overflow: hidden;
         display: flex;
         > .landing-container {
@@ -127,19 +126,28 @@
         }
     }
     > .faq {
-        height: 100vh;
-        background: $background-color;
+        height: 100%;
         overflow: hidden;
         display: flex;
         align-items: center;
+        
+        
 
         > .mobile-logo {
             width: 6vw;
             padding: 2rem 4vw;
         }
 
+        @media screen and (max-width: $mobile) {
+            align-items: flex-end;
+        }
+        
         > .faq-container {
-            padding: min(16vh, 8rem) $desktop-padding;
+            padding: 0 $desktop-padding;
+
+            @media screen and (max-width: $mobile) {
+                margin-bottom: 1rem;
+            }
 
             > .block {
                 display: flex;
@@ -161,19 +169,22 @@
         }
     }
     > .timeline {
-        height: 100vh;
-        background: $background-color;
+        height: 100%;
         overflow: hidden;
         display: flex;
         align-items: center;
-
+        
+        @media screen and (max-width: $mobile) {
+            align-items: flex-end;
+        }
         > .mobile-logo {
             width: 6vw;
             padding: 2rem 4vw;
         }
         > .timeline-container {
-            padding: min(16vh, 8rem) $desktop-padding;
-            
+
+            padding: 0 $desktop-padding;
+
             > h2 {
                 margin-bottom: 1.5rem;
             }
@@ -201,7 +212,7 @@
                         padding-left: 1rem;
                     }
                     > p {
-                        padding: 0.5rem 1rem 1.25rem;
+                        padding: 0.5rem 0rem 1.25rem;
                     }
                     > .middle {
                         display: flex;
@@ -231,6 +242,8 @@
 }
 
 .container {
+    background: $background-color;
+
     display: flex;
     scroll-snap-type: y mandatory;
     height: 100svh;
@@ -241,5 +254,4 @@
 section {
     scroll-snap-align: start;
     scroll-snap-stop: always;
-    height: 100svh;
   }

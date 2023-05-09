@@ -1,0 +1,30 @@
+@import '../src/styles/base.scss';
+:root {
+  font-family: Inter, system-ui;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: black;
+  background: #ededed;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+
+::-webkit-scrollbar {
+  display: none;
+}

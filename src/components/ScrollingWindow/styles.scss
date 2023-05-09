@@ -20,6 +20,7 @@ $mobile-window-width: 50vw;
   --video-height: 2346;
   --video-width: 0.2 * var(--video-height);
   --border-radius: 300; */
+  transform-origin: top;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,14 +43,14 @@ $mobile-window-width: 50vw;
   }
   @media screen and (max-width: $mobile) {
       right: auto;
-      bottom: 7rem;
+      bottom: 15svh;
       border-radius: calc(var(--available-space) * 0.6 * 1px);
       width: calc(var(--available-space) / 1.2 * 1px + 5vw);
       height: calc(var(--available-space) * 1px + 5vw);
       // border-radius: $mobile-window-width * 0.6;
       // width: calc($mobile-window-width - 5vw);
       // height: calc($mobile-window-width * 1.2 - 5vw);
-      transition: 0.8s;
+      transition: all 0.8s;
   }
 }
 
@@ -126,28 +127,72 @@ $mobile-window-width: 50vw;
 
 @keyframes FadeOut {
   0% {
+    transform: translateY(0px);
   }
   100% {
-    transform: translateY(-700px);
+    transform: translateY(-100vh);
+  }
+}
+
+@keyframes MobileFadeOut {
+  0% {
+    transform: scale(0.7) translateY(calc(var(--window-pos) * 1px));
+  }
+  100% {
+    transform: scale(0.7) translateY(-150vh);
   }
 }
 
 @keyframes FadeIn {
   0% {
-    transform: translateY(-700px);
+    opacity: 1;
+    transform: translateY(-100vh);
   }
+
   100% {
+    opacity: 1;
     transform: translateY(0px);
   }
 }
 
+@keyframes MobileFadeIn {
+  0% {
+    transform: scale(0.7) translateY(-150vh);
+  }
+  100% {
+    transform: scale(0.7) translateY(calc(var(--window-pos) * 1px));
+  }
+}
+
+@keyframes TestingMobile {
+  0% {
+    transform: scale(0.7) translateY(calc(var(--window-pos) * 1px));
+  }
+  100% {
+    transform: scale(1) translateY(0px);
+  }
+}
+
 .window-border.fade-out {
-  animation: FadeOut 0.3s ease-out;
+  animation: FadeOut 0.3s ease-out forwards;
+}
+.window-border.mobile-fade-out {
+  animation: MobileFadeOut 0.3s ease-out forwards;
 }
 
 .window-border.fade-in {
-  animation: FadeIn 0.3s ease-out;
+  animation: FadeIn 0.3s ease-out forwards;
 }
+
+.window-border.mobile-fade-in {
+  animation: MobileFadeIn 0.3s ease-out forwards;
+}
+
+.window-border.testing-mobile {
+  animation: TestingMobile 0.3s ease-out forwards;
+
+}
+
 
 /* .mobile-navbar {
   display: none;

@@ -2,21 +2,45 @@ import { useRef, useState } from 'react';
 import './styles.scss';
 import { useEffect } from 'react';
 
-function ScrollingWindow({availableSpace, containerRef, logoRef}) {
+function ScrollingWindow({timelineSpace, availableSpace, containerRef, logoRef}) {
   const windowBorderRef = useRef(null);
   const videoRef = useRef(null);
   const [currentSection, setcurrentSection] = useState(0);
   const [isScrolling, setisScrolling] = useState(false);
   const [timeoutId, setTimeoutID] = useState();
-  // let timeoutId = undefined;
+  const [documentHeight, setDocumentHeight] = useState(0);
+  const [initWindowHeight, setInitWindowHeight] = useState(0);
+  const [windowHeightOffset, setWindowHeightOffset] = useState(0);
+  const [windowScale, setWindowScale] = useState(0);
+
+  function handleFadeIn() {
+    if (currentSection == 4) {
+      if (document.body.clientWidth < 601) {
+        windowBorderRef.current.style.transform = `scale(${windowScale}) translateY(-${(initWindowHeight + windowHeightOffset)}px)`
+      } else {
+        windowBorderRef.current.classList.remove('fade-out')
+        windowBorderRef.current.classList.add('fade-in');
+      }
+    }
+    
+  }
+
+  function handleFadeOut() {
+    if (currentSection != 4) {
+      if (document.body.clientWidth < 601) {
+        windowBorderRef.current.style.transform = `scale(${windowScale}) translateY(-125vh)`
+      } else {
+        windowBorderRef.current.classList.remove('fade-in')
+        windowBorderRef.current.classList.add('fade-out');
+        windowBorderRef.current.style.transform = `translateY(-100vh)`;
+      }
+    }
+    
+  }
 
   function beforeNavigation(index) {
     if (index == 4) {
-      windowBorderRef.current.classList.add('fade-in');
-      windowBorderRef.current.style.display = '';
-      windowBorderRef.current.onanimationend = () => {
-        windowBorderRef.current.classList.remove('fade-in');
-      };
+      handleFadeIn();
     }
   }
 
@@ -33,15 +57,18 @@ function ScrollingWindow({availableSpace, containerRef, logoRef}) {
 
   function handleScroll() {
     if (isScrolling) return false;
+
     const scrollPercent =
       (containerRef.current.scrollTop /
-        (containerRef.current.getBoundingClientRect().height * 4)) *
+        (containerRef.current.getBoundingClientRect().height  * 4)) *
       100;
-
-    const containerWidth = containerRef.current.getBoundingClientRect().width;
-
+    
     if (0 <= scrollPercent && scrollPercent <= 12.5) {
       videoRef.current.style.transform = `translateY(-0%)`;
+      if (document.body.clientWidth < 601) {
+        windowBorderRef.current.style.transform = `scale(1) translateY(0)`
+        
+      }
       setcurrentSection(0);
     } else if (12.5 < scrollPercent && scrollPercent <= 37.5) {
       videoRef.current.style.transform = `translateY(-25%)`;
@@ -50,25 +77,12 @@ function ScrollingWindow({availableSpace, containerRef, logoRef}) {
       videoRef.current.style.transform = `translateY(-50%)`;
       setcurrentSection(2);
     } else if (62.5 < scrollPercent && scrollPercent <= 85) {
-      if (currentSection == 4) {
-        if (windowBorderRef.current.style.display == 'none') {
-          windowBorderRef.current.classList.add('fade-in');
-          windowBorderRef.current.style.display = '';
-          windowBorderRef.current.onanimationend = () => {
-            windowBorderRef.current.classList.remove('fade-in');
-          };
-        }
-      }
+      handleFadeIn();
       videoRef.current.style.transform = `translateY(-75%)`;
       setcurrentSection(3);
     } else if (scrollPercent > 85) {
-      if (windowBorderRef.current.style.display == '') {
-        windowBorderRef.current.classList.add('fade-out');
-        windowBorderRef.current.onanimationend = () => {
-          windowBorderRef.current.style.display = 'none';
-          windowBorderRef.current.classList.remove('fade-out');
-        };
-      }
+      handleFadeOut();
+
       setcurrentSection(4);
     }
 
@@ -78,11 +92,14 @@ function ScrollingWindow({availableSpace, containerRef, logoRef}) {
       logoRef.current.style.transform = `scale(1) translate(0, 0)`;
     }
 
-    if (containerWidth < 601) {
-      if (scrollPercent > 12.5) {
-        windowBorderRef.current.style.transform = `scale(0.5) translateY(-100vh)`
+    //Mobile view
+    if (document.body.clientWidth < 601) {
+      
+      if (scrollPercent > 12.5 && scrollPercent < 85) {
+        // windowBorderRef.current.style.transform = `scale(0.7) translateY(${documentHeight * -0.65}px)`
+        windowBorderRef.current.style.transform = `scale(${windowScale}) translateY(-${(initWindowHeight + windowHeightOffset)}px)`
       }
-      else {
+      else if (scrollPercent <= 12.5) {
         windowBorderRef.current.style.transform = `scale(1) translateY(0)`
       }
     }
@@ -90,6 +107,16 @@ function ScrollingWindow({availableSpace, containerRef, logoRef}) {
   }
 
   useEffect(() => {
+    //To account for mobile search bar
+    window.addEventListener('resize', () => {
+      setDocumentHeight(window.innerHeight);
+      if (windowBorderRef.current.getBoundingClientRect().top < 80) {
+        setWindowHeightOffset(0);
+      } else {
+        setWindowHeightOffset(100);
+      }
+      
+    })
     containerRef.current?.addEventListener('scroll', handleScroll, {
       passive: false,
     });
@@ -98,7 +125,17 @@ function ScrollingWindow({availableSpace, containerRef, logoRef}) {
         passive: false,
       });
     };
-  }, [isScrolling, currentSection]);
+  }, [isScrolling, currentSection, documentHeight]);
+
+
+  useEffect(() => {
+    console.log(timelineSpace)
+    console.log(windowBorderRef.current.getBoundingClientRect())
+    const scaleFactor = timelineSpace/windowBorderRef.current.getBoundingClientRect().height;
+    setWindowScale(scaleFactor)
+    setInitWindowHeight(windowBorderRef.current.getBoundingClientRect().top/scaleFactor  - 100);
+    setDocumentHeight(window.innerHeight);
+  }, [])
   return (
       <div style={{"--available-space": availableSpace}} className="window-container">
         <div ref={windowBorderRef} className="window-border">
@@ -168,11 +205,7 @@ function ScrollingWindow({availableSpace, containerRef, logoRef}) {
                 href="/#page-5"
                 className={currentSection == 4 ? 'active' : ''}
                 onClick={() => {
-                  windowBorderRef.current.classList.add('fade-out');
-                  windowBorderRef.current.onanimationend = () => {
-                    windowBorderRef.current.style.display = 'none';
-                    windowBorderRef.current.classList.remove('fade-out');
-                  };
+                  handleFadeOut();
                   tempScrolling(4);
                   containerRef.current?.scrollTo({ top: 3269, behavior: 'smooth' });
                   // videoRef.current.style.transform = `translateY(-75%)`;

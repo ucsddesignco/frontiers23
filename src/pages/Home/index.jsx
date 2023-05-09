@@ -100,7 +100,13 @@ function Home() {
       faq1Ref.current.getBoundingClientRect().top - 1*document.body.clientHeight,
       faq2Ref.current.getBoundingClientRect().top - 2*document.body.clientHeight,
       timelineRef.current.getBoundingClientRect().top - 3*document.body.clientHeight)
-    setTimelineSpace(smallestSpace - 115);
+
+    if (smallestSpace < 230) {
+      setTimelineSpace(smallestSpace- 80);
+    } else {
+
+      setTimelineSpace(smallestSpace - 115);
+    }
     //Calculate space available for window in first section
     setAvailableSpace((registerRef.current.getBoundingClientRect().top - (mobileDateRef.current.getBoundingClientRect().bottom + estimatedImageHeight)))
   }, [])

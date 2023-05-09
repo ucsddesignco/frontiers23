@@ -174,19 +174,11 @@
         overflow: hidden;
         display: flex;
         align-items: center;
-        padding: 0 $desktop-padding;
         
 
         @media screen and (max-width: $mobile) {
-            padding: 0 5vw;
+            padding: 0 $desktop-padding; 
             align-items: flex-end;
-
-            .timeline-title {
-                padding: 0 $desktop-padding; 
-
-            }
-
-            
         }
         > .mobile-logo {
             width: 6vw;
@@ -194,8 +186,7 @@
         }
         > .timeline-container {
 
-            
-
+        
             > h2 {
                 margin-bottom: 1.5rem;
             }

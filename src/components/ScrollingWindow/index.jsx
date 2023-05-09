@@ -28,7 +28,7 @@ function ScrollingWindow({timelineSpace, availableSpace, containerRef, logoRef})
   function handleFadeOut() {
     if (currentSection != 4) {
       if (document.body.clientWidth < 601) {
-        windowBorderRef.current.style.transform = `scale(${windowScale}) translateY(-150vh)`
+        windowBorderRef.current.style.transform = `scale(${windowScale}) translateY(-200vh)`
       } else {
         windowBorderRef.current.classList.remove('fade-in')
         windowBorderRef.current.classList.add('fade-out');

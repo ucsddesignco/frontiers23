@@ -42,6 +42,7 @@
 }
 
 .expanded-navbar {
+  overflow:hidden;
   margin-top: $navbar-height;
   background: $background-color;
   z-index: 5;

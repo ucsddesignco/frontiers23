@@ -5,8 +5,9 @@ import DcoLogo from '../../assets/images/dco_logo.svg';
 import HamburgerMenu from '../../assets/images/hamburgerMenu.svg';
 import CloseButton from '../../assets/images/close-button.svg';
 import PaperAirplane from '../../assets/images/paper_airplane.svg';
+import WindowNavbar from '../WindowNavbar';
 
-function MobileNavbar() {
+function MobileNavbar({refs, windowInfo, handleTransition, handleSections}) {
   const [openMenu, setOpenMenu] = useState(false);
   const openLink = () => {
     document.getElementById('arrow-right').classList.add('animate-click')
@@ -28,9 +29,7 @@ function MobileNavbar() {
       </ul>
       {openMenu ? 
         <ul className="expanded-navbar" >
-          <li >HOME</li>
-          <li >FAQ</li>
-          <li >TIMELINE</li>
+          <WindowNavbar windowInfo={windowInfo} setOpenMenu={setOpenMenu} refs={refs} handleTransition={handleTransition} handleSections={handleSections}/>
           <li>
             <div role='link'
                 className='register-button'

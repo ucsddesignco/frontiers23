@@ -118,7 +118,6 @@ function Home() {
     <div ref={containerRef} className="container">
       {availableSpace == 0 ? null : <ScrollingWindow timelineSpace={timelineSpace} availableSpace={availableSpace - (0.15*availableSpace)} containerRef={containerRef} logoRef={logoRef}/> }
       <div className="home">
-        <MobileNavbar />
         <section id="testLanding" className="landing">
           <div className="landing-container">
             <div className="left-container">

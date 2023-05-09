@@ -2,12 +2,13 @@ import { useRef, useState } from 'react';
 import './styles.scss';
 import { useEffect } from 'react';
 import WindowNavbar from '../WindowNavbar';
+import MobileNavbar from '../MobileNavbar';
 
 function ScrollingWindow({timelineSpace, availableSpace, containerRef, logoRef}) {
   const windowBorderRef = useRef(null);
   const videoRef = useRef(null);
-  const [currentSection, setcurrentSection] = useState(0);
-  const [isScrolling, setisScrolling] = useState(false);
+  const [currentSection, setCurrentSection] = useState(0);
+  const [isScrolling, setIsScrolling] = useState(false);
   const [documentHeight, setDocumentHeight] = useState(0);
   const [initWindowHeight, setInitWindowHeight] = useState(0);
   const [windowHeightOffset, setWindowHeightOffset] = useState(0);
@@ -51,21 +52,21 @@ function ScrollingWindow({timelineSpace, availableSpace, containerRef, logoRef})
         windowBorderRef.current.style.transform = `scale(1) translateY(0)`
         
       }
-      setcurrentSection(0);
+      setCurrentSection(0);
     } else if (12.5 < scrollPercent && scrollPercent <= 37.5) {
       videoRef.current.style.transform = `translateY(-25%)`;
-      setcurrentSection(1);
+      setCurrentSection(1);
     } else if (37.5 < scrollPercent && scrollPercent <= 62.5) {
       videoRef.current.style.transform = `translateY(-50%)`;
-      setcurrentSection(2);
+      setCurrentSection(2);
     } else if (62.5 < scrollPercent && scrollPercent <= 85) {
       handleFadeIn();
       videoRef.current.style.transform = `translateY(-75%)`;
-      setcurrentSection(3);
+      setCurrentSection(3);
     } else if (scrollPercent > 85) {
       handleFadeOut();
 
-      setcurrentSection(4);
+      setCurrentSection(4);
     }
 
     if (scrollPercent > 12.5) {
@@ -116,7 +117,13 @@ function ScrollingWindow({timelineSpace, availableSpace, containerRef, logoRef})
     setInitWindowHeight(windowBorderRef.current.getBoundingClientRect().top/scaleFactor  - 100);
     setDocumentHeight(window.innerHeight);
   }, [])
+
+  const refs = {containerRef, videoRef, logoRef, windowBorderRef};
+  const handleTransition = {handleFadeIn, handleFadeOut}
+  const handleSections = {currentSection, setCurrentSection, setIsScrolling}
+  const windowInfo = {windowScale, initWindowHeight, windowHeightOffset}
   return (
+    <>
       <div style={{"--available-space": availableSpace}} className="window-container">
         <div ref={windowBorderRef} className="window-border">
           <div className="video-mask">
@@ -128,14 +135,19 @@ function ScrollingWindow({timelineSpace, availableSpace, containerRef, logoRef})
               autoPlay
               loop
               playsInline
-            >
+              >
               <source src="DCO_DF23_Animation.mp4" />
             </video>
           </div>
         </div>
-        <WindowNavbar currentSection={currentSection} setisScrolling={setisScrolling} setcurrentSection={setcurrentSection}
-         handleFadeIn={handleFadeIn} handleFadeOut={handleFadeOut} containerRef={containerRef} videoRef={videoRef} logoRef={logoRef}/>
+        <nav className="navbar">
+          <ul>
+        <WindowNavbar refs={refs} windowInfo={windowInfo} handleTransition={handleTransition} handleSections={handleSections}/>
+          </ul>
+          </nav>
       </div>
+      <MobileNavbar refs={refs} windowInfo={windowInfo} handleTransition={handleTransition} handleSections={handleSections} />
+    </>
   );
 }
 

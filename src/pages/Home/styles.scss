@@ -173,9 +173,19 @@
         overflow: hidden;
         display: flex;
         align-items: center;
+        padding: 0 $desktop-padding;
         
+
         @media screen and (max-width: $mobile) {
+            padding: 0 5vw;
             align-items: flex-end;
+
+            .timeline-title {
+                padding: 0 $desktop-padding; 
+
+            }
+
+            
         }
         > .mobile-logo {
             width: 6vw;
@@ -183,7 +193,7 @@
         }
         > .timeline-container {
 
-            padding: 0 $desktop-padding;
+            
 
             > h2 {
                 margin-bottom: 1.5rem;
@@ -198,7 +208,7 @@
                     grid-template-columns: min(8vw, 8rem) 2rem 30vw;
 
                     @media screen and (max-width: $mobile) {
-                        margin-left: 0;
+                        // grid-template-columns: 6rem 2rem auto;
                         grid-template-columns: 6rem 2rem auto;
                     }
                     

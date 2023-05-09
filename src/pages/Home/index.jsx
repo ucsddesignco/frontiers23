@@ -83,6 +83,8 @@ function Home() {
   const logoRef = useRef(null);
   const mobileDateRef = useRef(null);
   const registerRef = useRef(null);
+  const faq1Ref = useRef(null);
+  const faq2Ref = useRef(null);
   const timelineRef = useRef(null);
   const [availableSpace, setAvailableSpace] = useState(0);
   const [timelineSpace, setTimelineSpace] = useState(0);
@@ -93,8 +95,12 @@ function Home() {
 
   useEffect(() => {
     const estimatedImageHeight = (document.body.clientWidth - 2*(document.body.clientWidth/10))/1.68 + 16;
-    //Calculate space available for window in other sections assuming timeline has least space
-    setTimelineSpace(timelineRef.current.getBoundingClientRect().top - 3*document.body.clientHeight - 120);
+    //Calculate space available for window in other sections based on smallest section
+    const smallestSpace = Math.min(
+      faq1Ref.current.getBoundingClientRect().top - 1*document.body.clientHeight,
+      faq2Ref.current.getBoundingClientRect().top - 2*document.body.clientHeight,
+      timelineRef.current.getBoundingClientRect().top - 3*document.body.clientHeight)
+    setTimelineSpace(smallestSpace - 115);
     //Calculate space available for window in first section
     setAvailableSpace((registerRef.current.getBoundingClientRect().top - (mobileDateRef.current.getBoundingClientRect().bottom + estimatedImageHeight)))
   }, [])
@@ -153,8 +159,8 @@ function Home() {
             </div>
           </div>
         </section>
-        <section id="testFAQ1" className="faq">
-          <div className="faq-container">
+        <section className="faq">
+          <div ref={faq1Ref} className="faq-container">
             <h2>FAQ</h2>
             {FaqList1.map((item) => (
               <div className="block">
@@ -164,8 +170,8 @@ function Home() {
             ))}
           </div>
         </section>
-        <section id="testFAQ2" className="faq">
-          <div className="faq-container">
+        <section className="faq">
+          <div ref={faq2Ref} className="faq-container">
             <h2>FAQ</h2>
             {FaqList2.map((item) => (
               <div className="block">
@@ -177,7 +183,7 @@ function Home() {
         </section>
         <section className="timeline">
           <div ref={timelineRef}  className="timeline-container">
-            <h2>TIMELINE</h2>
+            <h2 className='timeline-title'>TIMELINE</h2>
             {TimelineList.map((item) => (
               <div className="block">
                 <div className="grid-container">

@@ -176,8 +176,8 @@
         align-items: center;
         
 
+        padding: 0 $desktop-padding; 
         @media screen and (max-width: $mobile) {
-            padding: 0 $desktop-padding; 
             align-items: flex-end;
         }
         > .mobile-logo {

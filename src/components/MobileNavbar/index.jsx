@@ -7,7 +7,7 @@ import CloseButton from '../../assets/images/close-button.svg';
 import PaperAirplane from '../../assets/images/paper_airplane.svg';
 import WindowNavbar from '../WindowNavbar';
 
-function MobileNavbar({refs, windowInfo, handleTransition, handleSections}) {
+function MobileNavbar({refs, windowInfo, handleTransition, handleSections, sectionTops}) {
   const [openMenu, setOpenMenu] = useState(false);
   const openLink = () => {
     document.getElementById('arrow-right').classList.add('animate-click')
@@ -29,7 +29,7 @@ function MobileNavbar({refs, windowInfo, handleTransition, handleSections}) {
       </ul>
       {openMenu ? 
         <ul className="expanded-navbar" >
-          <WindowNavbar windowInfo={windowInfo} setOpenMenu={setOpenMenu} refs={refs} handleTransition={handleTransition} handleSections={handleSections}/>
+          <WindowNavbar windowInfo={windowInfo} setOpenMenu={setOpenMenu} refs={refs} handleTransition={handleTransition} handleSections={handleSections} sectionTops={sectionTops}/>
           <li>
             <div role='link'
                 className='register-button'

@@ -5,7 +5,8 @@ function WindowNavbar({
   windowInfo,
   handleTransition,
   handleSections,
-  setOpenMenu = null
+  setOpenMenu = null,
+  sectionTops
 }) {
   const [timeoutId, setTimeoutID] = useState();
 
@@ -27,6 +28,7 @@ function WindowNavbar({
     );
   }
 
+  const mobileView = document.body.clientWidth < 601;
 
   return (
     <>
@@ -36,8 +38,7 @@ function WindowNavbar({
           onClick={() => {
             beforeNavigation(handleSections.currentSection);
             tempScrolling(0);
-            // tempRemoveScroll({current: currentSection, scrollTo: 0});
-            refs.containerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+            refs.containerRef.current?.scrollTo({ top: sectionTops[0], behavior: 'smooth' });
             refs.videoRef.current.style.transform = `translateY(0%)`;
             refs.logoRef.current.style.transform = `scale(1) translate(0)`;
             refs.windowBorderRef.current.style.transform = `scale(1) translate(0)`
@@ -52,10 +53,12 @@ function WindowNavbar({
           onClick={() => {
             beforeNavigation(handleSections.currentSection);
             tempScrolling(1);
-            refs.containerRef.current?.scrollTo({ top: 817, behavior: 'smooth' });
+            refs.containerRef.current?.scrollTo({ top: sectionTops[1], behavior: 'smooth' });
             refs.videoRef.current.style.transform = `translateY(-25%)`;
             refs.logoRef.current.style.transform = `scale(0.25) translate(-8vw, -20rem)`;
-            refs.windowBorderRef.current.style.transform = `scale(${windowInfo.windowScale}) translateY(-${(windowInfo.initWindowHeight + windowInfo.windowHeightOffset)}px)`
+            if (mobileView) {
+              refs.windowBorderRef.current.style.transform = `scale(${windowInfo.windowScale}) translateY(-${(windowInfo.initWindowHeight + windowInfo.windowHeightOffset)}px)`
+            }
           }}
         >
           FAQ
@@ -67,22 +70,24 @@ function WindowNavbar({
           onClick={() => {
             beforeNavigation(handleSections.currentSection);
             tempScrolling(3);
-            refs.containerRef.current?.scrollTo({ top: 2451, behavior: 'smooth' });
+            refs.containerRef.current?.scrollTo({ top: sectionTops[3], behavior: 'smooth' });
             refs.videoRef.current.style.transform = `translateY(-75%)`;
             refs.logoRef.current.style.transform = `scale(0.25) translate(-8vw, -20rem)`;
-            refs.windowBorderRef.current.style.transform = `scale(${windowInfo.windowScale}) translateY(-${(windowInfo.initWindowHeight + windowInfo.windowHeightOffset)}px)`
+            if (mobileView) {
+              refs.windowBorderRef.current.style.transform = `scale(${windowInfo.windowScale}) translateY(-${(windowInfo.initWindowHeight + windowInfo.windowHeightOffset)}px)`
+            }
           }}
         >
           TIMELINE
         </a>
       </li>
-      {document.body.clientWidth < 601 ? null : <li>
+      {mobileView ? null : <li>
         <a
           className={handleSections.currentSection == 4 ? 'active' : ''}
           onClick={() => {
             handleTransition.handleFadeOut();
             tempScrolling(4);
-            refs.containerRef.current?.scrollTo({ top: 3519, behavior: 'smooth' });
+            refs.containerRef.current?.scrollTo({ top: sectionTops[4], behavior: 'smooth' });
             // videoRef.current.style.transform = `translateY(-75%)`;
             refs.logoRef.current.style.transform = `scale(0.25) translate(-8vw, -20rem)`;
           }}

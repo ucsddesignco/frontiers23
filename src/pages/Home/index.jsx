@@ -86,8 +86,10 @@ function Home() {
   const faq1Ref = useRef(null);
   const faq2Ref = useRef(null);
   const timelineRef = useRef(null);
+  const formRef = useRef(null);
   const [availableSpace, setAvailableSpace] = useState(0);
   const [timelineSpace, setTimelineSpace] = useState(0);
+  const [sectionTops, setSectionTops] = useState([]);
 
   const openLink = () => {
     document.getElementById('arrow-right').classList.add('animate-click')
@@ -101,7 +103,7 @@ function Home() {
       faq1Ref.current.getBoundingClientRect().top - 1*document.body.clientHeight,
       faq2Ref.current.getBoundingClientRect().top - 2*document.body.clientHeight,
       timelineRef.current.getBoundingClientRect().top - 3*document.body.clientHeight)
-
+      console.log(timelineRef.current.getBoundingClientRect().top)
     if (smallestSpace < 230) {
       setTimelineSpace(smallestSpace- 80);
     } else {
@@ -109,14 +111,21 @@ function Home() {
       setTimelineSpace(smallestSpace - 115);
     }
     //Calculate space available for window in first section
-    setAvailableSpace((registerRef.current.getBoundingClientRect().top - (mobileDateRef.current.getBoundingClientRect().bottom + estimatedImageHeight)))
+    setAvailableSpace((registerRef.current.getBoundingClientRect().top - (mobileDateRef.current.getBoundingClientRect().bottom + estimatedImageHeight)) * 0.85)
+    const section1Top = 0;
+    const section2Top = faq1Ref.current.getBoundingClientRect().top;
+    const section3Top = faq2Ref.current.getBoundingClientRect().top;
+    const section4Top = timelineRef.current.getBoundingClientRect().top;
+    const section5Top = formRef.current.getBoundingClientRect().top;
+    setSectionTops([section1Top, section2Top, section3Top, section4Top, section5Top]);
   }, [])
 
   
-
+  const spaceInfo = {timelineSpace, availableSpace}
+  const refs = {containerRef, logoRef}
   return ( 
     <div ref={containerRef} className="container">
-      {availableSpace == 0 ? null : <ScrollingWindow timelineSpace={timelineSpace} availableSpace={availableSpace - (0.15*availableSpace)} containerRef={containerRef} logoRef={logoRef}/> }
+      {availableSpace == 0 ? null : <ScrollingWindow spaceInfo={spaceInfo} refs={refs} sectionTops={sectionTops}/> }
       <div className="home">
         <section id="testLanding" className="landing">
           <div className="landing-container">
@@ -208,7 +217,9 @@ function Home() {
             ))}
           </div>
         </section>
-        <FormSubmission />
+        <div ref={formRef}>
+        <FormSubmission  />
+        </div>
       </div>
     </div>
   )

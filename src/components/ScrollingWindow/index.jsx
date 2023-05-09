@@ -144,6 +144,7 @@ function ScrollingWindow({timelineSpace, availableSpace, containerRef, logoRef})
               muted
               autoPlay
               loop
+              playsInline
             >
               <source src="DCO_DF23_Animation.mp4" />
             </video>

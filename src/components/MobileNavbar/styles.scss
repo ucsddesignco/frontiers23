@@ -3,9 +3,12 @@
 .mobile-navbar {
   font-family: $heading-font;
   display: none;
+  z-index: -99;
 
   &[aria-expanded="true"] {
     border-bottom: 1px solid black;
+    background: $background-color;
+
   }
 
   @media screen and (max-width: $mobile) {
@@ -31,6 +34,10 @@
         height: 30px;
         width: 30px;
       }
+
+      li img:is(:hover, :focus-visible) {
+        cursor: pointer;
+      }
     }
   }
 }
@@ -53,9 +60,13 @@
       font-size: 24px;
       
       &:not(:last-child) {
-        padding: 3rem 5rem;
+        padding: 6vw 15vw;
         border-bottom: 1px solid black;
     }
+  }
+
+  li:is(:hover, :focus-visible) {
+    cursor: pointer;
   }
 
   .register-button {
@@ -67,7 +78,7 @@
     font-weight: 700;
     color: black;
     border-bottom: none !important;
-    font-size: min(4svw, 2.5em);
+    font-size: min(4.5svw, 2.5em);
     width: 100%;
 
     &:hover {
@@ -88,8 +99,8 @@
 
   .paper-airplane {
     position: absolute;
-    bottom: 10rem;
-    right: 5rem;
+    bottom: 20svh;
+    right: 10svw;
     
   }
 }

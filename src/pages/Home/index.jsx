@@ -153,7 +153,7 @@ function Home() {
                 ref={registerRef}
                 role='link'
                 className='register-button'
-                onClick={(() => openLink('https://www.google.com/search?q=svw+vs+vw+react&rlz=1C1CHBF_enUS1013US1013&oq=svw+vs+vw+react&aqs=chrome..69i57j33i160l3.4931j0j7&sourceid=chrome&ie=UTF-8'))}
+                onClick={() => openLink()}
                 aria-label='Open registration form in new tab.'
               >
                 REGISTER FOR

@@ -49,7 +49,7 @@ function MobileNavbar({refs, windowInfo, handleTransition, handleSections, secti
                     <polygon points='247.773,8.081 175.407,82.05 295.118,199.145 0,199.145 0,306.14 279.496,306.14 175.407,407.949 247.773,481.919 490,245.004' />
                   </g>
                 </svg>
-                </div>
+            </div>
           <img className='paper-airplane' src={PaperAirplane} alt="Paper Airplane" />
           </li>
         </ul> : null}

@@ -1,13 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import './styles.scss'
 
 import brr from './brr.svg'
 import FullBoardingPass from './fullBoardingPass.png'
 
-const formLink = 'https://www.youtube.com/shorts/CbWFZ5eroXM'
+
 
 function FormSubmission() {
+	const arrowRef = useRef();
+	
 	const [winWidth, setWinWidth] = useState(window.innerWidth)
 
 	useEffect(() => {
@@ -16,21 +18,23 @@ function FormSubmission() {
 		})
 	}, [])
 
+	const openLink = (timeout) => {
+		console.log(document.getElementById('arrow-right'))
+		arrowRef.current.classList.add('animate-click')
+			setTimeout(() => {window.open('https://forms.gle/aGnQraeJjjvx29mF8', '_blank'), arrowRef.current.classList.remove('animate-click')}, timeout)
+		}
+
 	const [fly, setFly] = useState(false)
 	const brrRef = useRef()
-
-	const openLink = _ => {
-		window.open(formLink, '_blank')
-	}
 
 	const handleClick = _ => {
 		if (!fly) {
 			setFly(true)
 			brrRef.current.beginElement()
 
-			setTimeout(openLink, 1000)
+			openLink(1000);
 		} else {
-			openLink()
+			openLink(300)
 		}
 	}
 
@@ -51,12 +55,13 @@ function FormSubmission() {
 					<br />
 					DESIGN FRONTIERS
 					<svg
+					ref={arrowRef}
 						fill='black'
 						height={60}
 						width={60}
 						viewBox='0 0 490 490'
 						id='arrow-right'
-					>
+						>
 						<g>
 							<polygon points='247.773,8.081 175.407,82.05 295.118,199.145 0,199.145 0,306.14 279.496,306.14 175.407,407.949 247.773,481.919 490,245.004' />
 						</g>

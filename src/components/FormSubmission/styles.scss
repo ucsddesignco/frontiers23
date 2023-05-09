@@ -33,39 +33,7 @@ $desktop: 960px;
 			}
 		}
 
-		.register-button {
-			all: unset;
-
-			display: flex;
-			justify-content: center;
-			align-items: center;
-
-			text-align: left;
-			font-family: $heading-font;
-			font-weight: 700;
-			color: black;
-
-			&:hover {
-				text-decoration: underline;
-				cursor: pointer;
-			}
-
-			&:focus {
-				text-decoration: underline;
-			}
-
-			margin: 0 10px;
-			font-size: min(5svw, 2em);
-
-			@media screen and (min-width: $mobile) {
-				width: 70svw;
-				margin: 0;
-			}
-			#arrow-right {
-				margin-left: 25px;
-			}
-		}
-
+		
 		$boarding-pass-width: 30;
 
 		.fullboarding-pass1 {
@@ -108,4 +76,44 @@ $desktop: 960px;
 			}
 		}
 	}
+}
+
+.register-button {
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	text-align: left;
+	font-family: $heading-font;
+	font-weight: 700;
+	color: black;
+
+	&:is(:hover, :focus-visible) {
+		cursor: pointer;
+  
+		#arrow-right {
+		  transform: translateX(-20px);
+		}
+	  }
+  
+	  #arrow-right {
+		transition: transform 0.3s ease-in-out;
+		margin-left: 25px;
+		width: 50px;
+  
+		&.animate-click {
+		  transform: translateX(25px);
+		}
+	  }
+
+
+	margin: 0 10px;
+	font-size: min(5svw, 2em);
+
+	@media screen and (min-width: $mobile) {
+		width: 70svw;
+		margin: 0;
+	}
+	
 }

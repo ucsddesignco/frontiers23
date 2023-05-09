@@ -19,11 +19,11 @@ function MobileNavbar({refs, windowInfo, handleTransition, handleSections, secti
       <ul className='normal-navbar'>
         <li>
           <a href="">
-            <img src={DcoLogo} alt="Design Co Logo" />
+            <img width={30} height={30} src={DcoLogo} alt="Design Co Logo" />
           </a>
         </li>
         <li>
-            {openMenu ? <img onClick={() => setOpenMenu(false)} src={CloseButton} alt="" /> :<img onClick={() => setOpenMenu(true)} src={HamburgerMenu} alt="" />}
+            {openMenu ? <img width={25} height={25} onClick={() => setOpenMenu(false)} src={CloseButton} alt="" /> :<img width={25} height={25} onClick={() => setOpenMenu(true)} src={HamburgerMenu} alt="" />}
         </li>
         
       </ul>

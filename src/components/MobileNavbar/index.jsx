@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './styles.scss'
 
 import DcoLogo from '../../assets/images/dco_logo.svg';
@@ -8,13 +8,17 @@ import PaperAirplane from '../../assets/images/paper_airplane.svg';
 
 function MobileNavbar() {
   const [openMenu, setOpenMenu] = useState(false);
+  const openLink = () => {
+    document.getElementById('arrow-right').classList.add('animate-click')
+		setTimeout(() => {window.open('https://forms.gle/aGnQraeJjjvx29mF8', '_blank'), document.getElementById('arrow-right').classList.remove('animate-click')}, 300)
+	}
   return (
     <>
     <nav className="mobile-navbar" aria-expanded={openMenu}>
       <ul className='normal-navbar'>
         <li>
           <a href="">
-            <img src={DcoLogo} alt="" />
+            <img src={DcoLogo} alt="Design Co Logo" />
           </a>
         </li>
         <li>
@@ -27,11 +31,10 @@ function MobileNavbar() {
           <li >HOME</li>
           <li >FAQ</li>
           <li >TIMELINE</li>
-          <li role='link'
+          <li>
+            <div role='link'
                 className='register-button'
-                onClick={() => window.open('https://www.google.com/search?q=svw+vs+vw+react&rlz=1C1CHBF_enUS1013US1013&oq=svw+vs+vw+react&aqs=chrome..69i57j33i160l3.4931j0j7&sourceid=chrome&ie=UTF-8', '_blank')}
-                aria-label='Open registration form in new tab.'
-                
+                onClick={openLink}
               >
                 REGISTER FOR
                 <br />
@@ -47,8 +50,9 @@ function MobileNavbar() {
                     <polygon points='247.773,8.081 175.407,82.05 295.118,199.145 0,199.145 0,306.14 279.496,306.14 175.407,407.949 247.773,481.919 490,245.004' />
                   </g>
                 </svg>
-          </li>
+                </div>
           <img className='paper-airplane' src={PaperAirplane} alt="Paper Airplane" />
+          </li>
         </ul> : null}
     </nav>
     </>

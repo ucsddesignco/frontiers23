@@ -99,13 +99,12 @@
                     font-weight: 700;
                     color: black;
         
-                    &:hover {
-                        text-decoration: underline;
+                    &:is(:hover, :focus-visible) {
                         cursor: pointer;
-                    }
-        
-                    &:focus {
-                        text-decoration: underline;
+
+                        #arrow-right {
+                            transform: translateX(-20px);
+                        }
                     }
 
                     font-size: min(3svw, 1.5em);
@@ -119,8 +118,13 @@
                         
                     }
                     #arrow-right {
+                        transition: transform 0.3s ease-in-out;
                         margin-left: 25px;
                         width: 50px;
+
+                        &.animate-click {
+                            transform: translateX(30px);
+                        }
                     }
                 }
             }
@@ -207,14 +211,15 @@
                     > h5 {
                         text-align: right;
                         line-height: 1.5;
-                        padding-right: 1rem;
+                        padding-right: 0.5rem;
                     }
                     > h3 {
                         line-height: 1;
-                        padding-left: 1rem;
+                        padding-left: 0.5rem;
                     }
                     > p {
-                        padding: 0.5rem 0rem 1.25rem;
+                        
+                        padding: 0.5rem 0.5rem 1.25rem;
                     }
                     > .middle {
                         display: flex;

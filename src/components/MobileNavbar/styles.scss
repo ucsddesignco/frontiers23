@@ -5,10 +5,9 @@
   display: none;
   z-index: -99;
 
-  &[aria-expanded="true"] {
+  &[aria-expanded='true'] {
     border-bottom: 1px solid black;
     background: $background-color;
-
   }
 
   @media screen and (max-width: $mobile) {
@@ -51,22 +50,27 @@
   flex-direction: column;
   top: 0;
   width: 100%;
-  height: 100vh;
+  height: calc(100lvh - $navbar-height);
   list-style-type: none;
   padding-left: 0;
   text-align: left;
 
   li {
-      font-size: 24px;
-      
-      &:not(:last-child) {
-        padding: 6vw 15vw;
-        border-bottom: 1px solid black;
+    font-size: 24px;
+
+    &:not(:last-child) {
+      padding: 6vw 15vw;
+      border-bottom: 1px solid black;
     }
   }
 
   li:is(:hover, :focus-visible) {
     cursor: pointer;
+  }
+
+  li:is(:last-child) {
+    position: relative;
+    flex: 1;
   }
 
   .register-button {
@@ -81,26 +85,28 @@
     font-size: min(4.5svw, 2.5em);
     width: 100%;
 
-    &:hover {
-      text-decoration: underline;
+    &:is(:hover, :focus-visible) {
       cursor: pointer;
-    }
 
-    &:focus {
-      text-decoration: underline;
+      #arrow-right {
+        transform: translateX(-20px);
+      }
     }
-    
 
     #arrow-right {
+      transition: transform 0.3s ease-in-out;
       margin-left: 25px;
       width: 50px;
+
+      &.animate-click {
+        transform: translateX(30px);
+      }
     }
   }
 
   .paper-airplane {
     position: absolute;
-    bottom: 30%;
-    right: 15%;
-    
+    bottom: 10vh;
+    right: 12vw;
   }
 }

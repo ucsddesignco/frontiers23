@@ -32,7 +32,6 @@ function ScrollingWindow({timelineSpace, availableSpace, containerRef, logoRef})
       } else {
         windowBorderRef.current.classList.remove('fade-in')
         windowBorderRef.current.classList.add('fade-out');
-        windowBorderRef.current.style.transform = `translateY(-100vh)`;
       }
     }
     
@@ -51,7 +50,7 @@ function ScrollingWindow({timelineSpace, availableSpace, containerRef, logoRef})
     setTimeoutID(
       setTimeout(() => {
         setisScrolling(false);
-      }, 600)
+      }, 1200)
     );
   }
 
@@ -129,8 +128,6 @@ function ScrollingWindow({timelineSpace, availableSpace, containerRef, logoRef})
 
 
   useEffect(() => {
-    console.log(timelineSpace)
-    console.log(windowBorderRef.current.getBoundingClientRect())
     const scaleFactor = timelineSpace/windowBorderRef.current.getBoundingClientRect().height;
     setWindowScale(scaleFactor)
     setInitWindowHeight(windowBorderRef.current.getBoundingClientRect().top/scaleFactor  - 100);
@@ -207,7 +204,7 @@ function ScrollingWindow({timelineSpace, availableSpace, containerRef, logoRef})
                 onClick={() => {
                   handleFadeOut();
                   tempScrolling(4);
-                  containerRef.current?.scrollTo({ top: 3269, behavior: 'smooth' });
+                  containerRef.current?.scrollTo({ top: 3519, behavior: 'smooth' });
                   // videoRef.current.style.transform = `translateY(-75%)`;
                   logoRef.current.style.transform = `scale(0.25) translate(-8vw, -20rem)`;
                 }}

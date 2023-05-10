@@ -10,36 +10,36 @@ const FaqList1 = [
   {
     question: 'Who can participate?',
     answer:
-      'Registration is open to current UCSD students only. Anyone of any skill level can join!',
+      'Registration is open to <b>UCSD students</b> of all levels and backgrounds. We encourage everyone to apply and share their own unique perspectives, knowledge, and skills!',
   },
   {
-    question: 'When is the deadline to register?',
+    question: 'How big can my team be?',
     answer:
-      'Saturday, May 7th @ 11:59PM. We will cap the event at 60 participants, so register early!',
+      'Teams can be a minimum of 3 and a maximum of 4. Teams will not be assigned, so feel free to make your own or join one on Design Co’s Discord channel #frontiers-23.',
   },
   {
-    question: 'Where is the Design & Innovation Building?',
+    question: 'How long is Design Frontiers?',
     answer:
-      'DIB is located next to the Pepper Canyon Trolley Station, with entrances located across from the Structural Materials and Engineering building or next to the Regents Loop shuttle stop. Design Frontiers will be hosted in Room 208 on the second floor.',
+      'Design Frontiers will be a single-day event on <b>Saturday, May 20th from 9 AM-5 PM</b>. Lunch will be provided! See the Timeline for a more detailed breakdown of the schedule.',
   },
 ];
 
 const FaqList2 = [
   {
-    question: 'How long is Design Frontiers?',
+    question: 'Where is the Design and Innovation Building?',
     answer:
-      'It’ll be a one day event on Saturday, May 20th @ 9AM-5PM. Lunch will be provided! See the Timeline for a more detailed breakdown of the day.',
+      'DIB is located next to the Pepper Canyon Trolley Station, with entrances located across from the Structural Materials and Engineering building or next to the Regents Loop shuttle stop. Design Frontiers will be hosted in <b>Room 208</b> on the second floor.',
   },
   {
     question:
-      'How should I prepare for Design Frontiers if I have no design experience?',
+      'When is the deadline to register?',
     answer:
-      'We’ll be hosting a Navigating Design Frontiers workshop on Wednesday, May 12 at 6:30 PM in DIB 208.',
+      'Registration closes <b>Friday, May 12th at 11:59 PM</b>. We will cap the event at 60 participants, so register early!',
   },
   {
-    question: 'How big can my team be?',
+    question: 'How should I prepare for Design Frontiers if I have no design experience?',
     answer:
-      'Teams can be a min of 3 and a max of 4. Teams will not be assigned, so feel free to make your own in advance or on the day of the event. You can also join one on Design Co’s Discord channel #frontiers-22.',
+      'We’ll be hosting a Cruising Through Design Frontiers workshop on Wednesday, May 11 at 6:30 PM in DIB Room 208!',
   },
 ];
 
@@ -180,7 +180,7 @@ function Home() {
             {FaqList1.map((item) => (
               <div className="block">
                 <h4>{item.question}</h4>
-                <p>{item.answer}</p>
+                <p dangerouslySetInnerHTML={{ __html: item.answer }} />
               </div>
             ))}
           </div>
@@ -191,7 +191,7 @@ function Home() {
             {FaqList2.map((item) => (
               <div className="block">
                 <h4>{item.question}</h4>
-                <p>{item.answer}</p>
+                <p dangerouslySetInnerHTML={{ __html: item.answer }} />
               </div>
             ))}
           </div>

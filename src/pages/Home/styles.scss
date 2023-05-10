@@ -165,6 +165,10 @@
                 }
                 > p {
                     text-align: justify;
+
+                    > b {
+                        font-family: $heading-font;
+                    }
                 }
 
                 @media screen and (max-width: $mobile) {

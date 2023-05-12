@@ -39,7 +39,7 @@ const FaqList2 = [
   {
     question: 'How should I prepare for Design Frontiers if I have no design experience?',
     answer:
-      'We’ll be hosting a Cruising Through Design Frontiers workshop on Wednesday, May 11 at 6:30 PM in DIB Room 208!',
+      'We’ll be hosting a Cruising Through Design Frontiers workshop on Wednesday, May 17 at 6:30 PM in DIB Room 208!',
   },
 ];
 

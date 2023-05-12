@@ -123,51 +123,56 @@ function Home() {
   
   const spaceInfo = {timelineSpace, availableSpace}
   const refs = {containerRef, logoRef}
-  return ( 
+  return (
     <div ref={containerRef} className="container">
-      {availableSpace == 0 ? null : <ScrollingWindow spaceInfo={spaceInfo} refs={refs} sectionTops={sectionTops}/> }
+      {availableSpace == 0 ? null : (
+        <ScrollingWindow
+          spaceInfo={spaceInfo}
+          refs={refs}
+          sectionTops={sectionTops}
+        />
+      )}
       <div className="home">
         <section id="testLanding" className="landing">
           <div className="landing-container">
             <div className="left-container">
               <img ref={logoRef} src={Logo} className="logo" alt="" />
               <img src={Logo} className="mobile-logo" alt="" />
-              <h3>
-                SAT, MAY 20TH | 9AM–5PM | DIB 208
-              </h3>
+              <h3>SAT, MAY 20TH | 9AM–5PM | DIB 208</h3>
               <div ref={mobileDateRef} className="mobile-h3-container">
                 <h3>
                   SAT, MAY 20TH <br />
                   9AM–5PM
                 </h3>
-                <h3>
-                  DIB ROOM 208
-                </h3>
+                <h3>DIB ROOM 208</h3>
               </div>
               <p>
-                Design Frontiers is Design Co’s annual one-day design sprint
-                where collaborative teams of creative, innovative individuals
-                can explore design solutions to real problems.
+                Design Frontiers is one of Design Co’s largest annual
+                initiatives, promoting interdisciplinary cross-collaboration and
+                highlighting the versatility of design thinking. Throughout a
+                day-long design sprint, student teams will develop, ideate, and
+                present innovative design solutions to industry professionals
+                and alumni.
               </p>
               <div
                 ref={registerRef}
-                role='link'
-                className='register-button'
+                role="link"
+                className="register-button"
                 onClick={() => openLink()}
-                aria-label='Open registration form in new tab.'
+                aria-label="Open registration form in new tab."
               >
                 REGISTER FOR
                 <br />
                 DESIGN FRONTIERS
                 <svg
-                  fill='black'
+                  fill="black"
                   height={60}
                   width={60}
-                  viewBox='0 0 490 490'
-                  id='arrow-right'
+                  viewBox="0 0 490 490"
+                  id="arrow-right"
                 >
                   <g>
-                    <polygon points='247.773,8.081 175.407,82.05 295.118,199.145 0,199.145 0,306.14 279.496,306.14 175.407,407.949 247.773,481.919 490,245.004' />
+                    <polygon points="247.773,8.081 175.407,82.05 295.118,199.145 0,199.145 0,306.14 279.496,306.14 175.407,407.949 247.773,481.919 490,245.004" />
                   </g>
                 </svg>
               </div>
@@ -197,8 +202,8 @@ function Home() {
           </div>
         </section>
         <section className="timeline">
-          <div ref={timelineRef}  className="timeline-container">
-            <h2 className='timeline-title'>TIMELINE</h2>
+          <div ref={timelineRef} className="timeline-container">
+            <h2 className="timeline-title">TIMELINE</h2>
             {TimelineList.map((item) => (
               <div className="block">
                 <div className="grid-container">
@@ -218,11 +223,11 @@ function Home() {
           </div>
         </section>
         <div ref={formRef}>
-        <FormSubmission  />
+          <FormSubmission />
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Home

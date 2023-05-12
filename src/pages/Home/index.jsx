@@ -31,13 +31,13 @@ const FaqList2 = [
       'DIB is located next to the Pepper Canyon Trolley Station, with entrances located across from the Structural Materials and Engineering building or next to the Regents Loop shuttle stop. Design Frontiers will be hosted in <b>Room 208</b> on the second floor.',
   },
   {
-    question:
-      'When is the deadline to register?',
+    question: 'When is the deadline to register?',
     answer:
       'Registration closes <b>Wednesday, May 17th at 11:59 PM</b>. We will cap the event at 60 participants, so register early!',
   },
   {
-    question: 'How should I prepare for Design Frontiers if I have no design experience?',
+    question:
+      'How should I prepare for Design Frontiers if I have no design experience?',
     answer:
       'We’ll be hosting a Cruising Through Design Frontiers workshop on Wednesday, May 17 at 6:30 PM in DIB Room 208!',
   },
@@ -92,36 +92,57 @@ function Home() {
   const [sectionTops, setSectionTops] = useState([]);
 
   const openLink = () => {
-    document.getElementById('arrow-right').classList.add('animate-click')
-		setTimeout(() => {window.open('https://forms.gle/aGnQraeJjjvx29mF8', '_blank'), document.getElementById('arrow-right').classList.remove('animate-click')}, 300)
-	}
+    document.getElementById('arrow-right').classList.add('animate-click');
+    setTimeout(() => {
+      window.open('https://forms.gle/aGnQraeJjjvx29mF8', '_blank'),
+        document
+          .getElementById('arrow-right')
+          .classList.remove('animate-click');
+    }, 300);
+  };
 
   useEffect(() => {
-    const estimatedImageHeight = (document.body.clientWidth - 2*(document.body.clientWidth/10))/1.68 + 16;
+    const estimatedImageHeight =
+      (document.body.clientWidth - 2 * (document.body.clientWidth / 10)) /
+        1.68 +
+      16;
     //Calculate space available for window in other sections based on smallest section
     const smallestSpace = Math.min(
-      faq1Ref.current.getBoundingClientRect().top - 1*document.body.clientHeight,
-      faq2Ref.current.getBoundingClientRect().top - 2*document.body.clientHeight,
-      timelineRef.current.getBoundingClientRect().top - 3*document.body.clientHeight)
+      faq1Ref.current.getBoundingClientRect().top -
+        1 * document.body.clientHeight,
+      faq2Ref.current.getBoundingClientRect().top -
+        2 * document.body.clientHeight,
+      timelineRef.current.getBoundingClientRect().top -
+        3 * document.body.clientHeight
+    );
     if (smallestSpace < 230) {
-      setTimelineSpace(smallestSpace- 80);
+      setTimelineSpace(smallestSpace - 80);
     } else {
-
       setTimelineSpace(smallestSpace - 115);
     }
     //Calculate space available for window in first section
-    setAvailableSpace((registerRef.current.getBoundingClientRect().top - (mobileDateRef.current.getBoundingClientRect().bottom + estimatedImageHeight)) * 0.85)
+    setAvailableSpace(
+      (registerRef.current.getBoundingClientRect().top -
+        (mobileDateRef.current.getBoundingClientRect().bottom +
+          estimatedImageHeight)) *
+        0.85
+    );
     const section1Top = 0;
     const section2Top = faq1Ref.current.getBoundingClientRect().top;
     const section3Top = faq2Ref.current.getBoundingClientRect().top;
     const section4Top = timelineRef.current.getBoundingClientRect().top;
     const section5Top = formRef.current.getBoundingClientRect().top;
-    setSectionTops([section1Top, section2Top, section3Top, section4Top, section5Top]);
-  }, [])
+    setSectionTops([
+      section1Top,
+      section2Top,
+      section3Top,
+      section4Top,
+      section5Top,
+    ]);
+  }, []);
 
-  
-  const spaceInfo = {timelineSpace, availableSpace}
-  const refs = {containerRef, logoRef}
+  const spaceInfo = { timelineSpace, availableSpace };
+  const refs = { containerRef, logoRef };
   return (
     <div ref={containerRef} className="container">
       {availableSpace == 0 ? null : (
@@ -146,12 +167,9 @@ function Home() {
                 <h3>DIB ROOM 208</h3>
               </div>
               <p>
-                Design Frontiers is one of Design Co’s largest annual
-                initiatives, promoting interdisciplinary cross-collaboration and
-                highlighting the versatility of design thinking. Throughout a
-                day-long design sprint, student teams will develop, ideate, and
-                present innovative design solutions to industry professionals
-                and alumni.
+                Throughout a day-long design sprint, student teams will develop,
+                ideate, and present innovative design solutions to industry
+                professionals and alumni.
               </p>
               <div
                 ref={registerRef}
@@ -229,4 +247,4 @@ function Home() {
   );
 }
 
-export default Home
+export default Home;

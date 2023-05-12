@@ -19,7 +19,6 @@ function FormSubmission() {
 	}, [])
 
 	const openLink = (timeout) => {
-		console.log(document.getElementById('arrow-right'))
 		arrowRef.current.classList.add('animate-click')
 			setTimeout(() => {window.open('https://forms.gle/aGnQraeJjjvx29mF8', '_blank'), arrowRef.current.classList.remove('animate-click')}, timeout)
 		}

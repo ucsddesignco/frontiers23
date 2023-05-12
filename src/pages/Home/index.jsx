@@ -103,7 +103,6 @@ function Home() {
       faq1Ref.current.getBoundingClientRect().top - 1*document.body.clientHeight,
       faq2Ref.current.getBoundingClientRect().top - 2*document.body.clientHeight,
       timelineRef.current.getBoundingClientRect().top - 3*document.body.clientHeight)
-      console.log(timelineRef.current.getBoundingClientRect().top)
     if (smallestSpace < 230) {
       setTimelineSpace(smallestSpace- 80);
     } else {

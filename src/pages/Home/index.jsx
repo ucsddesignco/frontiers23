@@ -34,7 +34,7 @@ const FaqList2 = [
     question:
       'When is the deadline to register?',
     answer:
-      'Registration closes <b>Friday, May 17th at 11:59 PM</b>. We will cap the event at 60 participants, so register early!',
+      'Registration closes <b>Wednesday, May 17th at 11:59 PM</b>. We will cap the event at 60 participants, so register early!',
   },
   {
     question: 'How should I prepare for Design Frontiers if I have no design experience?',

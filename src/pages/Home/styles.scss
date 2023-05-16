@@ -82,7 +82,6 @@
                 @media screen and (max-width: $mobile) {
                     position:relative;
                     height: calc(100svh);
-
                     padding-top: calc($navbar-height );
                     width: 100%;    
                 }
@@ -114,6 +113,10 @@
                     text-align: justify;
                     margin: 2rem 0;
 
+                    @media screen and (max-height: 700px) {
+                        margin: 1.5rem 0;
+                    }
+
                     @media screen and (max-width: $mobile) {
                         display: none;
                     }
@@ -139,6 +142,10 @@
                     }
 
                     font-size: min(3svw, 1.5em);
+
+                    @media screen and (max-height: 700px) {
+                        font-size: min(2.5svw, 1.25em);
+                    }
         
                     @media screen and (max-width: $mobile) {
                         // display: none;

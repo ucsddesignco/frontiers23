@@ -1,6 +1,7 @@
 import './styles.scss';
 
 import Logo from '../../assets/images/logo.svg';
+import YahooLogo from '../../assets/images/yahoo_logo.svg'
 import MobileNavbar from '../../components/MobileNavbar';
 import ScrollingWindow from '../../components/ScrollingWindow';
 import FormSubmission from '../../components/FormSubmission';
@@ -87,6 +88,7 @@ function Home() {
   const faq2Ref = useRef(null);
   const timelineRef = useRef(null);
   const formRef = useRef(null);
+  const sponsorRef = useRef(null);
   const [availableSpace, setAvailableSpace] = useState(0);
   const [timelineSpace, setTimelineSpace] = useState(0);
   const [sectionTops, setSectionTops] = useState([]);
@@ -142,7 +144,7 @@ function Home() {
   }, []);
 
   const spaceInfo = { timelineSpace, availableSpace };
-  const refs = { containerRef, logoRef };
+  const refs = { containerRef, logoRef, sponsorRef };
   return (
     <div ref={containerRef} className="container">
       {availableSpace == 0 ? null : (
@@ -155,9 +157,16 @@ function Home() {
       <div className="home">
         <section id="testLanding" className="landing">
           <div className="landing-container">
+            
             <div className="left-container">
-              <img ref={logoRef} src={Logo} className="logo" alt="" />
-              <img src={Logo} className="mobile-logo" alt="" />
+            <div className="logo-container">
+              <div ref={sponsorRef} className='yahoo-sponsor'>
+                <p>Sponsored by&nbsp;</p>
+                <img src={YahooLogo} alt="Yahoo logo" />
+                </div>
+                <img ref={logoRef} src={Logo} className="logo" alt="" />
+                <img src={Logo} className="mobile-logo" alt="" />
+            </div>
               <h3>SAT, MAY 20TH | 9AM–5PM | DIB 208</h3>
               <div ref={mobileDateRef} className="mobile-h3-container">
                 <h3>

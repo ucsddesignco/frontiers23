@@ -1,19 +1,56 @@
 @import '../../styles/base.scss';
 
 .home {
-    .logo {
+
+    .logo-container {
         position: absolute;
         width: min(37rem, 33vw);
         top: min(10rem, 19vh);
         left: 8vw;
         z-index: 100;
       
+
+        @media screen and (max-width: $mobile) {
+            width: 100%;
+            position: relative;
+            top: 0;
+            left: 0;
+            
+        }
+        
+        .mobile-logo {
+            display: none;
+
+            @media screen and (max-width: $mobile) {
+                display: block;
+                margin: 0 auto 2rem;
+                width: 100%;
+                
+            }
+        }
+    }
+    .yahoo-sponsor {
+        display: flex;
+        margin-bottom: 1rem;
+        align-items: center;
+        transition: opacity 0.3s;
+        
+        p {
+            font-size: 22px;
+            font-family: 'Space Mono';
+        }
+
+        img {
+            display: inline-block;
+            height: 22px;
+            transform: translateY(2px);
+        }
+    }
+    .logo {
+        position: absolute;      
         transition: 0.5s;
         transform-origin: top left;
-      
-        /* width: 7vw;
-        top: 2rem;
-        left: 4vw; */
+
         @media screen and (max-width: $mobile) {
           display: none;
         }
@@ -43,19 +80,9 @@
                     height: calc(100svh);
 
                     padding-top: calc($navbar-height );
-                    width: 100%;
+                    width: 100%;    
                 }
                 
-                > .mobile-logo {
-                    display: none;
-
-                    @media screen and (max-width: $mobile) {
-                        display: block;
-                        margin: 0 auto 2rem;
-                        width: 100%;
-                        
-                    }
-                }
                 > h3 {
                     font-size: min(1.4svw, 1.45em);
                     white-space:nowrap;

@@ -19,6 +19,11 @@ function WindowNavbar({
 
   function tempScrolling(index) {
     clearTimeout(timeoutId);
+    if (index == 0) {
+      refs.sponsorRef.current.style.opacity = "1";
+    } else {
+      refs.sponsorRef.current.style.opacity = "0";
+    }
     handleSections.setIsScrolling(true);
     handleSections.setCurrentSection(index);
     setTimeoutID(

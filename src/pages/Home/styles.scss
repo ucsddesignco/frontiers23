@@ -28,6 +28,10 @@
                 
             }
         }
+
+        .logo {
+            width: min(37rem, 33vw);
+        }
     }
     .yahoo-sponsor {
         display: flex;
@@ -73,7 +77,7 @@
                 flex-direction: column;
                 align-items: flex-start;
                 width: min(37rem, 33vw);
-                padding-top: calc(min(37rem, 33vw)/1.6 + min(10rem, 19vh) + 1rem);
+                padding-top: calc(min(37rem, 33vw)/1.6 + min(10rem, 19vh) + 2.5rem);
 
                 @media screen and (max-width: $mobile) {
                     position:relative;

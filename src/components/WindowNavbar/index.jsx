@@ -59,7 +59,7 @@ function WindowNavbar({
           tempScrolling(1);
           refs.containerRef.current?.scrollTo({ top: sectionTops[1], behavior: 'smooth' });
           refs.videoRef.current.style.transform = `translateY(-25%)`;
-          refs.logoRef.current.style.transform = `scale(0.25) translate(-8vw, -20rem)`;
+          refs.logoRef.current.style.transform = `scale(0.25) translate(-8vw, -28rem)`;
           if (mobileView) {
             refs.windowBorderRef.current.style.transform = `scale(${windowInfo.windowScale}) translateY(-${(windowInfo.initWindowHeight + windowInfo.windowHeightOffset)}px)`
           }
@@ -77,7 +77,7 @@ function WindowNavbar({
           tempScrolling(3);
           refs.containerRef.current?.scrollTo({ top: sectionTops[3], behavior: 'smooth' });
           refs.videoRef.current.style.transform = `translateY(-75%)`;
-          refs.logoRef.current.style.transform = `scale(0.25) translate(-8vw, -20rem)`;
+          refs.logoRef.current.style.transform = `scale(0.25) translate(-8vw, -28rem)`;
           if (mobileView) {
             refs.windowBorderRef.current.style.transform = `scale(${windowInfo.windowScale}) translateY(-${(windowInfo.initWindowHeight + windowInfo.windowHeightOffset)}px)`
           }
@@ -96,7 +96,7 @@ function WindowNavbar({
           tempScrolling(4);
           refs.containerRef.current?.scrollTo({ top: sectionTops[4], behavior: 'smooth' });
           // videoRef.current.style.transform = `translateY(-75%)`;
-          refs.logoRef.current.style.transform = `scale(0.25) translate(-8vw, -20rem)`;
+          refs.logoRef.current.style.transform = `scale(0.25) translate(-8vw, -28rem)`;
         }}
       >
         <a

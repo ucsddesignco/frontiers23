@@ -71,7 +71,7 @@ function ScrollingWindow({spaceInfo, refs, sectionTops}) {
 
     if (scrollPercent > 12.5) {
       refs.sponsorRef.current.style.opacity = "0";
-      refs.logoRef.current.style.transform = `scale(0.25) translate(-8vw, -20rem)`;
+      refs.logoRef.current.style.transform = `scale(0.25) translate(-8vw, -28rem)`;
     } else {
       refs.sponsorRef.current.style.opacity = "1";
       refs.logoRef.current.style.transform = `scale(1) translate(0, 0)`;

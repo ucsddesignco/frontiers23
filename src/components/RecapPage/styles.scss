@@ -164,7 +164,7 @@ $desktop: 960px;
       }
     }  
 
-    
+
     width: 100svw;
 		height: 100vh;
 		display: flex;
@@ -257,6 +257,7 @@ $desktop: 960px;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
+                text-decoration: none;
 
                 cursor: pointer;
 
@@ -271,6 +272,7 @@ $desktop: 960px;
                 flex-direction: row;
                 align-items: center;
                 padding: 0 2rem 0 2rem;
+                text-decoration: none;
 
                 cursor: pointer;
 

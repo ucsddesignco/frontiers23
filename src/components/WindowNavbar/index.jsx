@@ -103,7 +103,7 @@ function WindowNavbar({
           className={handleSections.currentSection == 4 ? 'active' : ''}
           
         >
-          Register
+          Recap
         </a>
       </li>}
     </>

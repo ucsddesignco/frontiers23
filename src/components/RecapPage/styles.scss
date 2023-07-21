@@ -1,0 +1,291 @@
+@import '../../styles/base.scss';
+
+$mobile: 600px;
+$desktop: 960px;
+
+
+.recap-page {
+  height: 100vh;
+	width: 100svw;
+	z-index: 11;
+	margin-top: 250px;
+  border: 1px solid black;
+
+  @keyframes appear {
+    from {
+      opacity: 0;
+      display: none
+    }
+  
+    to {
+      opacity: 1;
+      display: inline;
+    }
+  }
+  
+  
+  
+  @keyframes disappear {
+    from {
+      opacity: 1;
+      display: inline;
+    }
+  
+    to {
+      opacity: 0;
+      display: none;
+    }
+  }  
+
+  .scroll-page {
+    width: 100svw;
+		height: 100vh;
+		display: flex;
+    padding: 0 35vw 0 28vw;
+    flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+
+    #header {
+      font-family: $heading-font;
+      font-size: 2.5rem;
+      padding-bottom: 0.25rem;
+    }
+
+    #subtitle {
+      font-family: $p-font;
+      width: 100%;
+
+    }
+
+    .recap-button {
+      width: 100%;
+      font-weight: 700;
+      color: black;
+      display: flex;
+      align-items: center;
+    
+      &:is(:hover, :focus-visible) {
+        cursor: pointer;
+      
+        #arrow-right {
+          transform: translateX(-20px);
+        }
+        }
+      
+        #arrow-right {
+        transition: transform 0.3s ease-in-out;
+        margin-left: 25px;
+        width: 50px;
+      
+        &.animate-click {
+          transform: translateX(25px);
+        }
+        }
+      
+    }
+
+    $postcard-width: 20;
+ 
+    .postcard-one {
+
+      width: max($postcard-width * 1svw, $postcard-width * 0.6 * 1rem);
+			position: absolute;
+			bottom: min($postcard-width * -0.5 * 1svw, $postcard-width * -0.3 * 1rem);
+      left: min($postcard-width * -0.5 * 1svw, $postcard-width * -0.4 * 1rem);
+			background-position: right;
+
+			#postcardone {
+				width: max($postcard-width / 0.6 * 1svw, $postcard-width * 1rem);
+
+				@media screen and (max-width: $mobile) {
+				}
+			}
+    }
+    .postcard-two {
+
+      width: max($postcard-width * 1svw, $postcard-width * 0.6 * 1rem);
+			position: absolute;
+			top: min($postcard-width * -0.7 * 1svw, $postcard-width * -0.6 * 1rem);
+			right: min($postcard-width * 1.6 * 1svw, $postcard-width * 11 * 1rem);
+			background-position: left;
+
+			#postcardtwo {
+				width: max($postcard-width / 0.6 * 1svw, $postcard-width * 1rem);
+
+				@media screen and (max-width: $mobile) {
+				}
+			}
+    }
+    .postcard-three {
+
+      width: max($postcard-width * 1svw, $postcard-width * 0.6 * 1rem);
+			position: absolute;
+			bottom: min($postcard-width * -0.5 * 1svw, $postcard-width * -0.3 * 1rem);
+			right: min($postcard-width * 0.7 * 1svw, $postcard-width * 2 * 1rem);;
+			background-position: left;
+
+			#postcardthree {
+				width: max($postcard-width / 0.6 * 1svw, $postcard-width * 1rem);
+
+				@media screen and (max-width: $mobile) {
+				}
+			}
+    }
+  }
+
+ 
+  .scroll-page-two {
+
+    @keyframes appeartwo {
+      from {
+        opacity: 0;
+        display: none
+      }
+    
+      to {
+        opacity: 1;
+        display: inline;
+      }
+    }
+    
+    
+    
+    @keyframes disappeartwo {
+      from {
+        opacity: 1;
+        display: inline;
+      }
+    
+      to {
+        opacity: 0;
+        display: none;
+      }
+    }  
+
+    
+    width: 100svw;
+		height: 100vh;
+		display: flex;
+    padding-right: clamp(60px, 43vw, 800px);
+    flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+
+    $airplane-width: 26;
+
+    .airplane-one {
+      position: absolute;
+      bottom: min($airplane-width * 0.02 * 1svw, $airplane-width * -0.08 * 1rem);
+			left: min($airplane-width * 0.04 * 1svw, $airplane-width * -0.1 * 1rem);
+      width: 180px;
+
+    }
+    .airplane-two {
+      position: absolute;
+      top: min($airplane-width * 0.4 * 1svw, $airplane-width * 0.2 * 1rem);
+			right: min($airplane-width * 0.4* 1svw, $airplane-width * 11 * 1rem);
+      width: 180px;
+
+    }
+    
+
+    .table {
+      padding: 2rem 4rem 2rem 4rem;
+      margin-top: 5rem;
+      width: clamp(400px, 45vw, 800px);
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      height: 36.6vw;
+      .nav {
+        width: 18vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        font-family: $heading-font;
+        .one {
+          color: $alt-color;
+          padding-right: 0.25rem;
+          font-weight: bold;
+          cursor: pointer;
+        }
+        .two {
+          color: $alt-color;
+          padding-right: 0.25rem;
+          width: 1rem;
+          font-weight: 700;
+        }
+        .three {
+          color: $text-color;
+          font-weight: 700;
+        }
+      }
+
+      .table-header {
+        margin: 0;
+      }
+
+      .table-data {
+        overflow-y: auto;
+        .tile {
+          display: flex;
+          flex-direction: row;
+          justify-content: start;
+          align-items: center;
+          .left {
+            width: 6vw;
+            padding-bottom: 1rem;
+            color: $alt-color;
+            font-size: 1.25rem;
+          }
+          .right {
+            margin-left: 0.5rem;
+            width: 30vw;
+            h3 {
+              font-size: 2rem;
+            }
+
+            .bottom {
+              display: flex;
+              flex-direction: row;
+              
+              .case-study {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                cursor: pointer;
+
+                .arrow {
+                  width: 12px;
+                  height: 12px;
+                  margin-left: 0.3rem;
+                }
+              }
+              .slide-deck {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 0 2rem 0 2rem;
+
+                cursor: pointer;
+
+                .arrow {
+                  width: 12px;
+                  height: 12px;
+                  margin-left: 0.3rem;
+                }
+              }
+            }
+          }
+        }
+      }
+      
+    }
+  }
+  
+}

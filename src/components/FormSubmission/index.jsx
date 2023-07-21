@@ -52,7 +52,7 @@ function FormSubmission() {
 				>
 					REGISTER FOR
 					<br />
-					DESIGN FRONTIERS
+					HI
 					<svg
 					ref={arrowRef}
 						fill='black'

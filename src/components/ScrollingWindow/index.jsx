@@ -85,7 +85,6 @@ function ScrollingWindow({spaceInfo, refs, sectionTops}) {
         windowBorderRef.current.style.transform = `scale(${windowScale}) translateY(-${(initWindowHeight + windowHeightOffset - 0)}px)`
       }
       else if (scrollPercent <= 12.5) {
-        //newwww
         windowBorderRef.current.style.transform = `scale(1) translateY(5rem)`
       }
     }

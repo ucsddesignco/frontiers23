@@ -133,7 +133,6 @@ function Home() {
         0.85
     );
 
-    console.log(estimatedImageHeight)
     const section1Top = 0;
     const section2Top = faq1Ref.current.getBoundingClientRect().top;
     const section3Top = faq2Ref.current.getBoundingClientRect().top;

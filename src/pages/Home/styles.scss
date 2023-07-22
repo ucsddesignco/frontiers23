@@ -7,7 +7,7 @@
         width: min(37rem, 33vw);
         top: min(10rem, 19vh);
         left: 8vw;
-        z-index: 100;
+        z-index: 0;
       
 
         @media screen and (max-width: $mobile) {

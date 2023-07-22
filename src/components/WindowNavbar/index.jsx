@@ -91,14 +91,15 @@ function WindowNavbar({
       </li>
       <li
         onClick={() => {
-          beforeNavigation(handleSections.currentSection);
+          setOpenMenu ? setOpenMenu(false) : null;
+          handleTransition.handleFadeOut();
           tempScrolling(4);
           refs.containerRef.current?.scrollTo({ top: sectionTops[4], behavior: 'smooth' });
-          refs.videoRef.current.style.transform = `translateY(-75%)`;
+          // refs.videoRef.current.style.transform = `translateY(-75%)`;
           refs.logoRef.current.style.transform = `scale(0.25) translate(-8vw, -28rem)`;
-          if (mobileView) {
-            refs.windowBorderRef.current.style.transform = `scale(${windowInfo.windowScale}) translateY(-${(windowInfo.initWindowHeight + windowInfo.windowHeightOffset)}px)`
-          }
+          // if (mobileView) {
+          //   refs.windowBorderRef.current.style.transform = `scale(${windowInfo.windowScale}) translateY(-${(windowInfo.initWindowHeight + windowInfo.windowHeightOffset)}px)`
+          // }
         }}
       >
         <a

@@ -14,7 +14,6 @@ function MobileNavbar({refs, windowInfo, handleTransition, handleSections, secti
 		setTimeout(() => {window.open('https://forms.gle/aGnQraeJjjvx29mF8', '_blank'), document.getElementById('arrow-right').classList.remove('animate-click')}, 300)
 	}
   return (
-    <>
     <nav className="mobile-navbar" aria-expanded={openMenu}>
       <ul className='normal-navbar'>
         <li>
@@ -32,7 +31,6 @@ function MobileNavbar({refs, windowInfo, handleTransition, handleSections, secti
           <WindowNavbar windowInfo={windowInfo} setOpenMenu={setOpenMenu} refs={refs} handleTransition={handleTransition} handleSections={handleSections} sectionTops={sectionTops}/>
         </ul> : null}
     </nav>
-    </>
   )
 }
 

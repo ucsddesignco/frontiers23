@@ -91,6 +91,7 @@ function Home() {
   const formRef = useRef(null);
   const recapRef = useRef(null);
   const sponsorRef = useRef(null);
+  const faq1ContainerRef = useRef(null);
   const [availableSpace, setAvailableSpace] = useState(0);
   const [timelineSpace, setTimelineSpace] = useState(0);
   const [sectionTops, setSectionTops] = useState([]);
@@ -126,11 +127,13 @@ function Home() {
     }
     //Calculate space available for window in first section
     setAvailableSpace(
-      (recapRef.current.getBoundingClientRect().top -
+      (faq1ContainerRef.current.getBoundingClientRect().top -
         (mobileDateRef.current.getBoundingClientRect().bottom +
           estimatedImageHeight)) *
         0.85
     );
+
+    console.log(estimatedImageHeight)
     const section1Top = 0;
     const section2Top = faq1Ref.current.getBoundingClientRect().top;
     const section3Top = faq2Ref.current.getBoundingClientRect().top;
@@ -157,7 +160,7 @@ function Home() {
         />
       )}
       <div className="home">
-        <section id="testLanding" className="landing">
+        <section id="testLanding" className="landing" >
           <div className="landing-container">
             
             <div className="left-container">
@@ -209,7 +212,7 @@ function Home() {
             </div>
           </div>
         </section>
-        <section className="faq">
+        <section className="faq" ref={faq1ContainerRef} >
           <div ref={faq1Ref} className="faq-container">
             <h2>FAQ</h2>
             {FaqList1.map((item) => (

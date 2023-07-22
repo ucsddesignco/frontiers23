@@ -20,6 +20,7 @@ $background-color: radial-gradient($inside-background-color, $outside-background
 $heading-font: 'Space Mono', sans-serif;
 $subheading-font: "Neue Plak", sans-serif;
 $p-font: "Space Mono Regular", sans-serif;
+$footer-font: "Graphik", sans-serif;
 
 // Heights //
 $navbar-height: 100px;
@@ -38,6 +39,11 @@ $navbar-height: 100px;
 @font-face {
     font-family: "Neue Plak";
     src: url("../../assets/fonts/Neue-Plak-Extended-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Graphik";
+    src: url("../../assets/fonts/Graphik-Regular.otf") format("opentype");
 }
 
 h2, h3, h4, h5, p {

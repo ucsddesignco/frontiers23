@@ -9,6 +9,9 @@ import arrow from './arrow.png';
 import airplane1 from './airplane1.png';
 import airplane2 from './airplane2.png';
 
+import heart from './heart.svg';
+import designco from './designco.svg';
+
 
 function RecapPage() {
   const arrowRef = useRef();
@@ -248,6 +251,17 @@ function RecapPage() {
         />
         
       </div>}
+      <div className='footer-mobile'>
+        <div className='left'>
+          <p>Made With</p>
+          <img id="heart" src={heart} />
+          <img id="dco" src={designco} />
+
+        </div>
+        <a className='right' href = "mailto: designatucsd@gmail.com">
+          hello@ucsddesign.co
+        </a>
+      </div>
     </section>
   )
 }

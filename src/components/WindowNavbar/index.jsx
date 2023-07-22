@@ -89,23 +89,24 @@ function WindowNavbar({
           TIMELINE
         </a>
       </li>
-      {mobileView ? null : 
       <li
         onClick={() => {
-          handleTransition.handleFadeOut();
+          beforeNavigation(handleSections.currentSection);
           tempScrolling(4);
           refs.containerRef.current?.scrollTo({ top: sectionTops[4], behavior: 'smooth' });
-          // videoRef.current.style.transform = `translateY(-75%)`;
+          refs.videoRef.current.style.transform = `translateY(-75%)`;
           refs.logoRef.current.style.transform = `scale(0.25) translate(-8vw, -28rem)`;
+          if (mobileView) {
+            refs.windowBorderRef.current.style.transform = `scale(${windowInfo.windowScale}) translateY(-${(windowInfo.initWindowHeight + windowInfo.windowHeightOffset)}px)`
+          }
         }}
       >
         <a
           className={handleSections.currentSection == 4 ? 'active' : ''}
-          
         >
-          Recap
+          RECAP
         </a>
-      </li>}
+      </li>
     </>
   );
 }

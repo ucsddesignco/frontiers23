@@ -515,6 +515,7 @@ $desktop: 960px;
       $airplane-width: 26;
 
       .airplane-one {
+        display: block;
         position: absolute;
         bottom: min($airplane-width * 0.02 * 1svw, $airplane-width * -0.08 * 1rem);
         left: min($airplane-width * 0.04 * 1svw, $airplane-width * -0.1 * 1rem);
@@ -522,6 +523,7 @@ $desktop: 960px;
 
       }
       .airplane-two {
+        display: block;
         position: absolute;
         top: min($airplane-width * 0.4 * 1svw, $airplane-width * 0.2 * 1rem);
         right: min($airplane-width * 0.4* 1svw, $airplane-width * 11 * 1rem);

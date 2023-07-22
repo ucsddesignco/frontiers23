@@ -49,7 +49,7 @@ function ScrollingWindow({spaceInfo, refs, sectionTops}) {
     if (0 <= scrollPercent && scrollPercent <= 12.5) {
       videoRef.current.style.transform = `translateY(-0%)`;
       if (document.body.clientWidth < 601) {
-        windowBorderRef.current.style.transform = `scale(1) translateY(0)`
+        windowBorderRef.current.style.transform = `scale(1) translateY(5rem)`
         
       }
       setCurrentSection(0);
@@ -82,10 +82,11 @@ function ScrollingWindow({spaceInfo, refs, sectionTops}) {
       
       if (scrollPercent > 12.5 && scrollPercent < 85) {
         // windowBorderRef.current.style.transform = `scale(0.7) translateY(${documentHeight * -0.65}px)`
-        windowBorderRef.current.style.transform = `scale(${windowScale}) translateY(-${(initWindowHeight + windowHeightOffset)}px)`
+        windowBorderRef.current.style.transform = `scale(${windowScale}) translateY(-${(initWindowHeight + windowHeightOffset - 0)}px)`
       }
       else if (scrollPercent <= 12.5) {
-        windowBorderRef.current.style.transform = `scale(1) translateY(0)`
+        //newwww
+        windowBorderRef.current.style.transform = `scale(1) translateY(5rem)`
       }
     }
 
@@ -118,6 +119,11 @@ function ScrollingWindow({spaceInfo, refs, sectionTops}) {
     setWindowScale(scaleFactor)
     setInitWindowHeight(windowBorderRef.current.getBoundingClientRect().top/scaleFactor  - 100);
     setDocumentHeight(window.innerHeight);
+
+    //Account for recap changes - push down first section window a bit lower
+    if (document.body.clientWidth < 601) {
+      windowBorderRef.current.style.transform =  `scale(1) translateY(5rem)`;
+    }
   }, [])
 
   const newRefs = {...refs, videoRef, windowBorderRef};

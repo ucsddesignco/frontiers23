@@ -56,21 +56,13 @@
   text-align: left;
 
   li {
-    font-size: 24px;
-
-    &:not(:last-child) {
+      font-size: 24px;
       padding: 6vw 15vw;
       border-bottom: 1px solid black;
-    }
   }
 
   li:is(:hover, :focus-visible) {
     cursor: pointer;
-  }
-
-  li:is(:last-child) {
-    position: relative;
-    flex: 1;
   }
 
   .register-button {

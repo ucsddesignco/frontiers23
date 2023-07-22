@@ -30,28 +30,6 @@ function MobileNavbar({refs, windowInfo, handleTransition, handleSections, secti
       {openMenu ? 
         <ul className="expanded-navbar" >
           <WindowNavbar windowInfo={windowInfo} setOpenMenu={setOpenMenu} refs={refs} handleTransition={handleTransition} handleSections={handleSections} sectionTops={sectionTops}/>
-          <li>
-            <div role='link'
-                className='register-button'
-                onClick={openLink}
-              >
-                REGISTER FOR
-                <br />
-                DESIGN FRONTIERS
-                <svg
-                  fill='black'
-                  height={60}
-                  width={60}
-                  viewBox='0 0 490 490'
-                  id='arrow-right'
-                >
-                  <g>
-                    <polygon points='247.773,8.081 175.407,82.05 295.118,199.145 0,199.145 0,306.14 279.496,306.14 175.407,407.949 247.773,481.919 490,245.004' />
-                  </g>
-                </svg>
-            </div>
-          <img className='paper-airplane' src={PaperAirplane} alt="Paper Airplane" />
-          </li>
         </ul> : null}
     </nav>
     </>

@@ -5,6 +5,7 @@ import YahooLogo from '../../assets/images/yahoo_logo.svg'
 import MobileNavbar from '../../components/MobileNavbar';
 import ScrollingWindow from '../../components/ScrollingWindow';
 import FormSubmission from '../../components/FormSubmission';
+import RecapPage from '../../components/RecapPage';
 import { useEffect, useRef, useState } from 'react';
 
 const FaqList1 = [
@@ -88,7 +89,9 @@ function Home() {
   const faq2Ref = useRef(null);
   const timelineRef = useRef(null);
   const formRef = useRef(null);
+  const recapRef = useRef(null);
   const sponsorRef = useRef(null);
+  const faq1ContainerRef = useRef(null);
   const [availableSpace, setAvailableSpace] = useState(0);
   const [timelineSpace, setTimelineSpace] = useState(0);
   const [sectionTops, setSectionTops] = useState([]);
@@ -124,16 +127,18 @@ function Home() {
     }
     //Calculate space available for window in first section
     setAvailableSpace(
-      (registerRef.current.getBoundingClientRect().top -
+      (faq1ContainerRef.current.getBoundingClientRect().top -
         (mobileDateRef.current.getBoundingClientRect().bottom +
           estimatedImageHeight)) *
         0.85
     );
+
+    console.log(estimatedImageHeight)
     const section1Top = 0;
     const section2Top = faq1Ref.current.getBoundingClientRect().top;
     const section3Top = faq2Ref.current.getBoundingClientRect().top;
     const section4Top = timelineRef.current.getBoundingClientRect().top;
-    const section5Top = formRef.current.getBoundingClientRect().top;
+    const section5Top = recapRef.current.getBoundingClientRect().top;
     setSectionTops([
       section1Top,
       section2Top,
@@ -155,7 +160,7 @@ function Home() {
         />
       )}
       <div className="home">
-        <section id="testLanding" className="landing">
+        <section id="testLanding" className="landing" >
           <div className="landing-container">
             
             <div className="left-container">
@@ -180,6 +185,7 @@ function Home() {
                 ideate, and present innovative design solutions to industry
                 professionals and alumni.
               </p>
+              {/*}
               <div
                 ref={registerRef}
                 role="link"
@@ -202,10 +208,11 @@ function Home() {
                   </g>
                 </svg>
               </div>
+              */}
             </div>
           </div>
         </section>
-        <section className="faq">
+        <section className="faq" ref={faq1ContainerRef} >
           <div ref={faq1Ref} className="faq-container">
             <h2>FAQ</h2>
             {FaqList1.map((item) => (
@@ -248,9 +255,15 @@ function Home() {
             ))}
           </div>
         </section>
+        {/*
         <div ref={formRef}>
           <FormSubmission />
         </div>
+            */}
+        <div ref={recapRef}>
+          <RecapPage />
+        </div>
+
       </div>
     </div>
   );
